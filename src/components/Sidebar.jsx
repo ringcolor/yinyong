@@ -4,10 +4,12 @@ import styles from './Sidebar.module.css'
 
 function Sidebar() {
   const navItems = [
-    { path: '/', label: 'CV', icon: '📄' },
-    { path: '/projects', label: '项目经历', icon: '💻' },
-    { path: '/research', label: '科研经历', icon: '📚' },
-    { path: '/works', label: '个人作品', icon: '🎨' },
+    { path: '/', label: 'Home', icon: '🏠' },
+    { path: '/research', label: 'Research', icon: '📚' },
+    { path: '/projects', label: 'Projects', icon: '💻' },
+    { path: '/gallery', label: 'Gallery', icon: '🎨' },
+    { path: '/blog', label: 'Blog', icon: '✍️' },
+    { path: '/cv', label: 'CV', icon: '📄' },
   ]
 
   return (

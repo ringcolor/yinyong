@@ -34,26 +34,16 @@ function ResearchDetail() {
       )}
 
       <div className={styles.content}>
-        {paper.authors && paper.authors.length > 0 && (
-          <div className={styles.section}>
-            <h3 className={styles.sectionTitle}>作者</h3>
-            <p className={styles.authors}>{paper.authors.join(', ')}</p>
-          </div>
-        )}
-
-        {paper.journal && (
-          <div className={styles.section}>
-            <h3 className={styles.sectionTitle}>发表期刊</h3>
-            <p className={styles.journal}>{paper.journal}</p>
-          </div>
-        )}
-
-        {paper.date && (
-          <div className={styles.section}>
-            <h3 className={styles.sectionTitle}>发表时间</h3>
-            <p className={styles.date}>{paper.date}</p>
-          </div>
-        )}
+        <div className={styles.meta}>
+          {paper.authors && paper.authors.length > 0 && (
+            <p className={styles.metaAuthors}>{paper.authors.join(', ')}</p>
+          )}
+          <p className={styles.metaInfo}>
+            {paper.journal && <span>{paper.journal}</span>}
+            {paper.journal && paper.date && <span> · </span>}
+            {paper.date && <span>{paper.date}</span>}
+          </p>
+        </div>
 
         <div className={styles.section}>
           <h3 className={styles.sectionTitle}>摘要</h3>

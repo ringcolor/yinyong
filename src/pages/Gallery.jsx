@@ -1,13 +1,13 @@
 import WorkCard from '../components/WorkCard'
 import works from '../data/works.json'
-import styles from './Works.module.css'
+import styles from './Gallery.module.css'
 
-function Works() {
+function Gallery() {
   return (
-    <div className={styles.works}>
-      <h1 className={styles.pageTitle}>个人作品</h1>
+    <div className={styles.gallery}>
+      <h1 className={styles.pageTitle}>Gallery</h1>
       <p className={styles.pageDescription}>
-        这里展示了我创建的一些开源项目、工具和资源。
+        摄影、舞蹈、兴趣爱好等个人作品展示
       </p>
       <div className={styles.grid}>
         {works.works.map((work) => (
@@ -18,4 +18,4 @@ function Works() {
   )
 }
 
-export default Works
+export default Gallery
