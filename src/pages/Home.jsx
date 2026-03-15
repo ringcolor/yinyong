@@ -13,9 +13,8 @@ function Home() {
     <div className={styles.home}>
       {/* Hero Section */}
       <section className={styles.hero}>
+        <p className={styles.greeting}>Hey there 👋</p>
         <h1 className={styles.name}>{profile.name}</h1>
-        <p className={styles.nameEn}>{profile.nameEn}</p>
-        <p className={styles.title}>{profile.title}</p>
         <p className={styles.bio}>{profile.bio || profile.summary}</p>
       </section>
 

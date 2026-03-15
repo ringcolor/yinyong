@@ -6,32 +6,23 @@
 
 /* Hero Section */
 .hero {
-  text-align: center;
+  text-align: left;
   padding: 3rem 0 4rem;
   border-bottom: 1px solid var(--border-color, #e5e7eb);
   margin-bottom: 3rem;
 }
 
-.name {
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--text-primary, #1a1a2e);
-  margin: 0 0 0.5rem;
-  letter-spacing: -0.02em;
-}
-
-.nameEn {
-  font-size: 1.25rem;
+.greeting {
+  font-size: 1.1rem;
   color: var(--text-secondary, #6b7280);
   margin: 0 0 0.5rem;
-  font-weight: 400;
 }
 
-.title {
-  font-size: 1.1rem;
-  color: var(--accent-color, #3b82f6);
+.name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary, #1a1a2e);
   margin: 0 0 1.5rem;
-  font-weight: 500;
 }
 
 .bio {
@@ -39,7 +30,6 @@
   line-height: 1.8;
   color: var(--text-secondary, #4b5563);
   max-width: 600px;
-  margin: 0 auto;
 }
 
 /* Sections */
@@ -147,7 +137,7 @@
 /* Responsive */
 @media (max-width: 600px) {
   .name {
-    font-size: 2.25rem;
+    font-size: 1.5rem;
   }
 
   .hero {

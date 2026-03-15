@@ -4,12 +4,12 @@ import styles from './Sidebar.module.css'
 
 function Sidebar() {
   const navItems = [
-    { path: '/', label: 'Home', icon: '🏠' },
-    { path: '/research', label: 'Research', icon: '📚' },
-    { path: '/projects', label: 'Projects', icon: '💻' },
-    { path: '/gallery', label: 'Gallery', icon: '🎨' },
-    { path: '/blog', label: 'Blog', icon: '✍️' },
-    { path: '/cv', label: 'CV', icon: '📄' },
+    { path: '/', label: 'Home' },
+    { path: '/research', label: 'Research' },
+    { path: '/projects', label: 'Projects' },
+    { path: '/gallery', label: 'Gallery' },
+    { path: '/blog', label: 'Blog' },
+    { path: '/cv', label: 'CV' },
   ]
 
   return (
@@ -39,8 +39,7 @@ function Sidebar() {
             }
             end={item.path === '/'}
           >
-            <span className={styles.icon}>{item.icon}</span>
-            <span className={styles.label}>{item.label}</span>
+            {item.label}
           </NavLink>
         ))}
       </nav>

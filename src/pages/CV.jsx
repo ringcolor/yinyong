@@ -1,7 +1,6 @@
 import EducationCard from '../components/EducationCard'
 import ProjectCard from '../components/ProjectCard'
 import ResearchCard from '../components/ResearchCard'
-import profile from '../data/profile.json'
 import education from '../data/education.json'
 import projects from '../data/projects.json'
 import research from '../data/research.json'
@@ -11,12 +10,6 @@ import styles from './CV.module.css'
 function CV() {
   return (
     <div className={styles.cv}>
-      {/* 个人简介 */}
-      <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>个人简介</h2>
-        <p className={styles.summary}>{profile.summary}</p>
-      </section>
-
       {/* 教育背景 */}
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>教育背景</h2>
