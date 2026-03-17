@@ -69,28 +69,7 @@
 
 .description {
   margin: var(--spacing-sm) 0 0;
-  padding-left: var(--spacing-lg);
   font-size: var(--text-sm);
   color: var(--text-secondary);
   line-height: 1.8;
-}
-
-.description li {
-  margin-bottom: var(--spacing-xs);
-}
-
-.techRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-xs);
-  margin-top: var(--spacing-sm);
-}
-
-.techTag {
-  display: inline-block;
-  font-size: var(--text-xs);
-  padding: 2px var(--spacing-sm);
-  background-color: var(--bg-tertiary);
-  border-radius: var(--radius-full);
-  color: var(--text-secondary);
 }

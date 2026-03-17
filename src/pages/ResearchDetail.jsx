@@ -26,7 +26,19 @@ function ResearchDetail() {
       </Link>
 
       <h1 className={styles.title}>{paper.title}</h1>
-      <p className={styles.subtitle}>{paper.subtitle}</p>
+      <div className={styles.titleRow}>
+        <p className={styles.subtitle}>{paper.subtitle}</p>
+        {paper.link && (
+          <a
+            href={paper.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.paperLink}
+          >
+            阅读论文 →
+          </a>
+        )}
+      </div>
 
       {paper.image && (
         <div className={styles.imageWrapper}>
@@ -46,11 +58,6 @@ function ResearchDetail() {
           </p>
         </div>
 
-        <div className={styles.section}>
-          <h3 className={styles.sectionTitle}>摘要</h3>
-          <p className={styles.abstract}>{paper.abstract}</p>
-        </div>
-
         {paper.tags && paper.tags.length > 0 && (
           <div className={styles.section}>
             <h3 className={styles.sectionTitle}>关键词</h3>
@@ -64,16 +71,27 @@ function ResearchDetail() {
           </div>
         )}
 
-        {paper.link && (
-          <div className={styles.section}>
-            <a
-              href={paper.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.paperLink}
-            >
-              阅读论文 →
-            </a>
+        {/* 正文内容块 - 支持图文交替 */}
+        {paper.sections && paper.sections.length > 0 && (
+          <div className={styles.article}>
+            {paper.sections.map((section, index) => (
+              <div key={index} className={styles.articleSection}>
+                {section.type === 'text' && (
+                  <p className={styles.paragraph}>{section.content}</p>
+                )}
+                {section.type === 'image' && (
+                  <div className={styles.articleImage}>
+                    <img src={getAssetUrl(section.src)} alt={section.alt || ''} />
+                    {section.caption && (
+                      <p className={styles.imageCaption}>{section.caption}</p>
+                    )}
+                  </div>
+                )}
+                {section.type === 'heading' && (
+                  <h4 className={styles.articleHeading}>{section.content}</h4>
+                )}
+              </div>
+            ))}
           </div>
         )}
       </div>

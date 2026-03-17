@@ -32,23 +32,8 @@ function InternshipCard({ internship }) {
       </div>
 
       {/* 第三行：工作内容 */}
-      {internship.description && internship.description.length > 0 && (
-        <ul className={styles.description}>
-          {internship.description.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      )}
-
-      {/* 第四行：技术栈 */}
-      {internship.tech && internship.tech.length > 0 && (
-        <div className={styles.techRow}>
-          {internship.tech.map((tech, index) => (
-            <span key={index} className={styles.techTag}>
-              {tech}
-            </span>
-          ))}
-        </div>
+      {internship.description && (
+        <p className={styles.description}>{internship.description}</p>
       )}
     </div>
   )

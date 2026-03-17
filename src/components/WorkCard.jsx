@@ -1,29 +1,29 @@
+import { Link } from 'react-router-dom'
 import { getAssetUrl } from '../utils/assets'
 import styles from './WorkCard.module.css'
 
-function WorkCard({ work }) {
+function WorkCard({ item, type }) {
+  // type: 'project' 或 'research'
+  const linkPath = type === 'research' ? `/research/${item.id}` : `/projects/${item.id}`
+  const title = item.name || item.title
+  const period = item.period || item.date
+  const summary = item.summary || item.abstract
+
   return (
-    <a
-      href={work.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={styles.link}
-    >
+    <Link to={linkPath} className={styles.cardLink}>
       <div className={styles.card}>
-        {work.image && (
+        {item.image && (
           <div className={styles.imageWrapper}>
-            <img src={getAssetUrl(work.image)} alt={work.title} className={styles.image} />
+            <img src={getAssetUrl(item.image)} alt={title} className={styles.image} />
           </div>
         )}
         <div className={styles.content}>
-          <div className={styles.header}>
-            <h3 className={styles.title}>{work.title}</h3>
-            <span className={styles.type}>{work.type}</span>
-          </div>
-          <p className={styles.description}>{work.description}</p>
+          <h3 className={styles.title}>{title}</h3>
+          {period && <p className={styles.period}>{period}</p>}
+          {summary && <p className={styles.summary}>{summary}</p>}
         </div>
       </div>
-    </a>
+    </Link>
   )
 }
 

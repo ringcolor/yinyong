@@ -3,16 +3,6 @@ import { getAssetUrl } from '../utils/assets'
 import styles from './ResearchCard.module.css'
 
 function ResearchCard({ paper, showDetails = false }) {
-  // 获取作者排序显示
-  const getAuthorOrder = () => {
-    if (!paper.authors || paper.authors.length === 0) return null
-    // 假设第一个作者是主要作者，根据位置判断排序
-    const totalAuthors = paper.authors.length
-    if (totalAuthors === 1) return '1st Author'
-    if (totalAuthors === 2) return '1st Author'
-    return '1st Author'
-  }
-
   const content = (
     <div className={styles.card}>
       {/* 左边图片 */}
@@ -29,8 +19,6 @@ function ResearchCard({ paper, showDetails = false }) {
           {paper.date && <span>{paper.date}</span>}
           {paper.date && paper.journal && <span> · </span>}
           {paper.journal && <span>{paper.journal}</span>}
-          {paper.journal && getAuthorOrder() && <span> · </span>}
-          {getAuthorOrder() && <span>{getAuthorOrder()}</span>}
         </p>
         <p className={styles.abstract}>{paper.abstract}</p>
       </div>
