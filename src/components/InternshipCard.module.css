@@ -1,0 +1,96 @@
+.card {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  border: 1px solid var(--border-light);
+  transition: all var(--transition-fast);
+}
+
+.card:hover {
+  border-color: var(--border-color);
+  box-shadow: var(--shadow-md);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.nameWrapper {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+}
+
+.company {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.companyEn {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.period {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-top: var(--spacing-xs);
+}
+
+.position {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.separator {
+  color: var(--text-muted);
+}
+
+.department,
+.location {
+  color: var(--text-secondary);
+}
+
+.description {
+  margin: var(--spacing-sm) 0 0;
+  padding-left: var(--spacing-lg);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.description li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.techRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-sm);
+}
+
+.techTag {
+  display: inline-block;
+  font-size: var(--text-xs);
+  padding: 2px var(--spacing-sm);
+  background-color: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+}

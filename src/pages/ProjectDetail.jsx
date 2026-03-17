@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import ProjectCard from '../components/ProjectCard'
 import projects from '../data/projects.json'
+import { getAssetUrl } from '../utils/assets'
 import styles from './ProjectDetail.module.css'
 
 function ProjectDetail() {
@@ -30,7 +31,7 @@ function ProjectDetail() {
 
       {project.image && (
         <div className={styles.imageWrapper}>
-          <img src={project.image} alt={project.name} className={styles.image} />
+          <img src={getAssetUrl(project.image)} alt={project.name} className={styles.image} />
         </div>
       )}
 

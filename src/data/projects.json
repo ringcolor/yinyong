@@ -3,7 +3,7 @@
     {
       "id": "project-1",
       "name": "智能问答系统",
-      "image": "/images/project-1.jpg",
+      "image": "/images/projects/project-1/cover.jpg",
       "summary": "基于大语言模型的企业级智能问答系统，支持多轮对话和知识库检索。",
       "details": "该项目是一个面向企业的智能问答系统，采用RAG（检索增强生成）技术，结合大语言模型和企业知识库，实现精准的问题回答。系统支持多轮对话、上下文理解、以及多种文档格式的知识库导入。主要技术栈包括：LangChain、Milvus向量数据库、FastAPI后端、React前端。",
       "tech": ["Python", "LangChain", "Milvus", "FastAPI", "React", "GPT-4"],
@@ -13,7 +13,7 @@
     {
       "id": "project-2",
       "name": "医学影像诊断AI助手",
-      "image": "/images/project-2.jpg",
+      "image": "/images/projects/project-2/cover.jpg",
       "summary": "基于深度学习的医学影像分析系统，辅助医生进行疾病诊断。",
       "details": "开发了一个基于深度学习的医学影像分析系统，能够自动识别CT和X光图像中的异常区域。系统采用U-Net和Transformer相结合的架构，实现了病变区域的精确分割和分类。在公开数据集上达到了95%以上的准确率。",
       "tech": ["PyTorch", "U-Net", "Transformer", "OpenCV", "DICOM"],
@@ -23,7 +23,7 @@
     {
       "id": "project-3",
       "name": "智能推荐引擎",
-      "image": "/images/project-3.jpg",
+      "image": "/images/projects/project-3/cover.jpg",
       "summary": "基于深度学习的个性化推荐系统，支持多场景推荐。",
       "details": "构建了一个端到端的推荐系统，支持召回、排序、重排三个阶段。采用双塔模型进行召回，DeepFM进行排序，并结合业务规则进行重排。系统能够处理亿级用户和千万级商品的推荐请求。",
       "tech": ["TensorFlow", "Redis", "Kafka", "Spark", "Elasticsearch"],

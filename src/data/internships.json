@@ -1,0 +1,34 @@
+{
+  "internships": [
+    {
+      "id": "intern-1",
+      "company": "字节跳动",
+      "companyEn": "ByteDance",
+      "position": "AI算法实习生",
+      "department": "AI Lab",
+      "period": "2024.03 - 2024.08",
+      "location": "北京",
+      "description": [
+        "负责大语言模型推理优化，将推理延迟降低30%",
+        "参与RAG系统开发，实现多轮对话知识检索功能",
+        "编写技术文档和算法报告，协助团队知识沉淀"
+      ],
+      "tech": ["Python", "PyTorch", "Transformers", "LangChain"]
+    },
+    {
+      "id": "intern-2",
+      "company": "腾讯",
+      "companyEn": "Tencent",
+      "position": "机器学习实习生",
+      "department": "微信事业群",
+      "period": "2023.06 - 2023.09",
+      "location": "深圳",
+      "description": [
+        "参与推荐系统召回模块开发，优化用户画像特征",
+        "搭建A/B测试平台，验证算法效果提升5%",
+        "协助团队完成模型部署和线上监控"
+      ],
+      "tech": ["Python", "TensorFlow", "Spark", "SQL"]
+    }
+  ]
+}

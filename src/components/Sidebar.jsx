@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import profile from '../data/profile.json'
+import { getAssetUrl } from '../utils/assets'
 import styles from './Sidebar.module.css'
 
 function Sidebar() {
@@ -17,7 +18,7 @@ function Sidebar() {
       <div className={styles.profile}>
         <div className={styles.avatar}>
           {profile.avatar ? (
-            <img src={profile.avatar} alt={profile.name} />
+            <img src={getAssetUrl(profile.avatar)} alt={profile.name} />
           ) : (
             <div className={styles.avatarPlaceholder}>
               {profile.name.charAt(0)}

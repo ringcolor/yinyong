@@ -8,7 +8,7 @@
       "journal": "NeurIPS 2024",
       "date": "2024.12",
       "abstract": "本文提出了一种高效的注意力机制，能够在保持模型性能的同时，将计算复杂度从O(n²)降低到O(n log n)。该方法通过稀疏注意力模式和多尺度特征融合，实现了对长序列的有效处理，在多个基准数据集上取得了显著的效果提升。",
-      "image": "/images/paper-1.jpg",
+      "image": "/images/research/paper-1/cover.jpg",
       "link": "https://arxiv.org/abs/xxxx.xxxxx",
       "tags": ["Attention", "Long-Context", "NLP"]
     },
@@ -20,7 +20,7 @@
       "journal": "CVPR 2024",
       "date": "2024.06",
       "abstract": "本文探索了视觉语言模型在医学影像分析中的应用，提出了一种新的多模态融合框架，能够有效整合文本描述和图像特征，提高诊断准确率。在多个医学影像数据集上进行了验证，显示出优越的性能。",
-      "image": "/images/paper-2.jpg",
+      "image": "/images/research/paper-2/cover.jpg",
       "link": "https://arxiv.org/abs/xxxx.xxxxx",
       "tags": ["Multi-Modal", "Medical AI", "Vision-Language"]
     },
@@ -32,7 +32,7 @@
       "journal": "KDD 2023",
       "date": "2023.08",
       "abstract": "本文提出了一种新的自监督学习方法用于推荐系统，通过对比学习预训练用户和物品表示，显著提升了推荐效果。该方法能够有效缓解冷启动问题，在多个数据集上取得了SOTA效果。",
-      "image": "/images/paper-3.jpg",
+      "image": "/images/research/paper-3/cover.jpg",
       "link": "https://arxiv.org/abs/xxxx.xxxxx",
       "tags": ["Self-Supervised", "Recommendation", "Contrastive Learning"]
     }

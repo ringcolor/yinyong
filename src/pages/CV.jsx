@@ -1,7 +1,9 @@
 import EducationCard from '../components/EducationCard'
+import InternshipCard from '../components/InternshipCard'
 import ProjectCard from '../components/ProjectCard'
 import ResearchCard from '../components/ResearchCard'
 import education from '../data/education.json'
+import internships from '../data/internships.json'
 import projects from '../data/projects.json'
 import research from '../data/research.json'
 import blog from '../data/blog.json'
@@ -17,6 +19,16 @@ function CV() {
           <EducationCard key={school.id} school={school} />
         ))}
       </section>
+
+      {/* 实习经历 */}
+      {internships.internships && internships.internships.length > 0 && (
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>实习经历</h2>
+          {internships.internships.map((internship) => (
+            <InternshipCard key={internship.id} internship={internship} />
+          ))}
+        </section>
+      )}
 
       {/* 项目经历简介 */}
       <section className={styles.section}>

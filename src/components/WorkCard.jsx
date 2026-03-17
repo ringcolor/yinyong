@@ -1,3 +1,4 @@
+import { getAssetUrl } from '../utils/assets'
 import styles from './WorkCard.module.css'
 
 function WorkCard({ work }) {
@@ -11,7 +12,7 @@ function WorkCard({ work }) {
       <div className={styles.card}>
         {work.image && (
           <div className={styles.imageWrapper}>
-            <img src={work.image} alt={work.title} className={styles.image} />
+            <img src={getAssetUrl(work.image)} alt={work.title} className={styles.image} />
           </div>
         )}
         <div className={styles.content}>

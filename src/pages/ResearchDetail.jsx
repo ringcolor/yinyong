@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import research from '../data/research.json'
+import { getAssetUrl } from '../utils/assets'
 import styles from './ResearchDetail.module.css'
 
 function ResearchDetail() {
@@ -29,7 +30,7 @@ function ResearchDetail() {
 
       {paper.image && (
         <div className={styles.imageWrapper}>
-          <img src={paper.image} alt={paper.title} className={styles.image} />
+          <img src={getAssetUrl(paper.image)} alt={paper.title} className={styles.image} />
         </div>
       )}
 

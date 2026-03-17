@@ -4,7 +4,7 @@
       "id": "work-1",
       "title": "AI工具集合网站",
       "description": "收集整理各种AI工具的导航网站",
-      "image": "/images/work-1.jpg",
+      "image": "/images/gallery/work-1.jpg",
       "link": "https://aitools.example.com",
       "type": "website"
     },
@@ -12,7 +12,7 @@
       "id": "work-2",
       "title": "论文阅读笔记模板",
       "description": "用于记录论文阅读笔记的Notion模板",
-      "image": "/images/work-2.jpg",
+      "image": "/images/gallery/work-2.jpg",
       "link": "https://notion.so/template/xxxxx",
       "type": "template"
     },
@@ -20,7 +20,7 @@
       "id": "work-3",
       "title": "机器学习可视化项目",
       "description": "交互式机器学习算法可视化演示",
-      "image": "/images/work-3.jpg",
+      "image": "/images/gallery/work-3.jpg",
       "link": "https://github.com/zhangsan/ml-visualization",
       "type": "project"
     }

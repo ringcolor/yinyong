@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { getAssetUrl } from '../utils/assets'
 import styles from './ProjectCard.module.css'
 
 function ProjectCard({ project, showDetails = false }) {
@@ -6,7 +7,7 @@ function ProjectCard({ project, showDetails = false }) {
     <div className={styles.card}>
       {project.image && (
         <div className={styles.imageWrapper}>
-          <img src={project.image} alt={project.name} className={styles.image} />
+          <img src={getAssetUrl(project.image)} alt={project.name} className={styles.image} />
         </div>
       )}
       <div className={styles.content}>
