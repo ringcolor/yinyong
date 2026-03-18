@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import blog from '../data/blog.json'
 import styles from './Blog.module.css'
 
@@ -10,11 +11,9 @@ function Blog() {
       </p>
       <div className={styles.postList}>
         {blog.posts.map((post) => (
-          <a
+          <Link
             key={post.id}
-            href={post.link}
-            target="_blank"
-            rel="noopener noreferrer"
+            to={`/blog/${post.id}`}
             className={styles.postItem}
           >
             <div className={styles.postHeader}>
@@ -27,7 +26,7 @@ function Blog() {
                 <span key={index} className={styles.tag}>{tag}</span>
               ))}
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </div>

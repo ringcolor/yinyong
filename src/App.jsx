@@ -8,6 +8,7 @@ import Research from './pages/Research'
 import ResearchDetail from './pages/ResearchDetail'
 import Gallery from './pages/Gallery'
 import Blog from './pages/Blog'
+import BlogDetail from './pages/BlogDetail'
 import './App.css'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="research/:id" element={<ResearchDetail />} />
         <Route path="gallery" element={<Gallery />} />
         <Route path="blog" element={<Blog />} />
+        <Route path="blog/:id" element={<BlogDetail />} />
       </Route>
     </Routes>
   )

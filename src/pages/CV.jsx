@@ -1,12 +1,8 @@
-import EducationCard from '../components/EducationCard'
-import InternshipCard from '../components/InternshipCard'
-import ProjectCard from '../components/ProjectCard'
-import ResearchCard from '../components/ResearchCard'
+import { Link } from 'react-router-dom'
 import education from '../data/education.json'
 import internships from '../data/internships.json'
-import projects from '../data/projects.json'
-import research from '../data/research.json'
-import blog from '../data/blog.json'
+import awards from '../data/awards.json'
+import skills from '../data/skills.json'
 import styles from './CV.module.css'
 
 function CV() {
@@ -15,75 +11,97 @@ function CV() {
       {/* 教育背景 */}
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>教育背景</h2>
-        {education.schools.map((school) => (
-          <EducationCard key={school.id} school={school} />
-        ))}
+        <div className={styles.list}>
+          {education.schools.map((school) => (
+            <div key={school.id} className={styles.item}>
+              <div className={styles.itemHeader}>
+                <div className={styles.itemTitle}>
+                  <span className={styles.name}>{school.name}</span>
+                  <span className={styles.nameEn}>{school.nameEn}</span>
+                </div>
+                <span className={styles.period}>{school.period}</span>
+              </div>
+              <div className={styles.itemContent}>
+                <p className={styles.infoLine}>
+                  <span>{school.degree}</span>
+                  {school.major && <span> · {school.major}</span>}
+                </p>
+                {school.gpa && <p className={styles.infoLine}>{school.gpa}</p>}
+                {school.honors && school.honors.length > 0 && (
+                  <p className={styles.infoLine}>
+                    荣誉：{school.honors.join('、')}
+                  </p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* 实习经历 */}
       {internships.internships && internships.internships.length > 0 && (
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>实习经历</h2>
-          {internships.internships.map((internship) => (
-            <InternshipCard key={internship.id} internship={internship} />
-          ))}
+          <div className={styles.list}>
+            {internships.internships.map((internship) => (
+              <div key={internship.id} className={styles.item}>
+                <div className={styles.itemHeader}>
+                  <div className={styles.itemTitle}>
+                    <span className={styles.name}>{internship.company}</span>
+                    {internship.companyEn && <span className={styles.nameEn}>{internship.companyEn}</span>}
+                  </div>
+                  <span className={styles.period}>{internship.period}</span>
+                </div>
+                <div className={styles.itemContent}>
+                  <p className={styles.infoLine}>
+                    <span>{internship.position}</span>
+                    {internship.department && <span> · {internship.department}</span>}
+                    {internship.location && <span> · {internship.location}</span>}
+                  </p>
+                  {internship.description && (
+                    <p className={styles.description}>{internship.description}</p>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
       )}
 
-      {/* 项目经历简介 */}
-      <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>项目经历</h2>
-        <div className={styles.grid}>
-          {projects.projects.slice(0, 3).map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
-        {projects.projects.length > 3 && (
-          <a href="/projects" className={styles.viewAll}>
-            查看全部项目 →
-          </a>
-        )}
-      </section>
-
-      {/* 科研经历简介 */}
-      <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>科研经历</h2>
-        {research.papers.slice(0, 2).map((paper) => (
-          <ResearchCard key={paper.id} paper={paper} />
-        ))}
-        {research.papers.length > 2 && (
-          <a href="/research" className={styles.viewAll}>
-            查看全部论文 →
-          </a>
-        )}
-      </section>
-
-      {/* Blog 笔记 */}
-      {blog.posts && blog.posts.length > 0 && (
+      {/* 获奖成果 */}
+      {awards.awards && awards.awards.length > 0 && (
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Blog 笔记</h2>
-          <div className={styles.blogList}>
-            {blog.posts.slice(0, 3).map((post) => (
-              <a
-                key={post.id}
-                href={post.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.blogItem}
-              >
-                <h3 className={styles.blogTitle}>{post.title}</h3>
-                <p className={styles.blogSummary}>{post.summary}</p>
-                <div className={styles.blogMeta}>
-                  <span className={styles.blogDate}>{post.date}</span>
-                  <div className={styles.blogTags}>
-                    {post.tags.map((tag, index) => (
-                      <span key={index} className={styles.blogTag}>
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+          <h2 className={styles.sectionTitle}>获奖成果</h2>
+          <div className={styles.awardList}>
+            {awards.awards.map((award) => (
+              award.projectId ? (
+                <Link key={award.id} to={`/projects/${award.projectId}`} className={styles.awardItem}>
+                  <span className={styles.awardTitle}>{award.title}</span>
+                  <span className={styles.awardLevel}>{award.level}</span>
+                  <span className={styles.awardDate}>{award.date}</span>
+                </Link>
+              ) : (
+                <div key={award.id} className={styles.awardItem}>
+                  <span className={styles.awardTitle}>{award.title}</span>
+                  <span className={styles.awardLevel}>{award.level}</span>
+                  <span className={styles.awardDate}>{award.date}</span>
                 </div>
-              </a>
+              )
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* 技能 */}
+      {skills.skills && skills.skills.length > 0 && (
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>技能</h2>
+          <div className={styles.skillsList}>
+            {skills.skills.map((skill, index) => (
+              <div key={index} className={styles.skillItem}>
+                <span className={styles.skillCategory}>{skill.category}</span>
+                <span className={styles.skillItems}>{skill.items.join('、')}</span>
+              </div>
             ))}
           </div>
         </section>

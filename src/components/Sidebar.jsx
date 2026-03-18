@@ -6,11 +6,11 @@ import styles from './Sidebar.module.css'
 function Sidebar() {
   const navItems = [
     { path: '/', label: 'Home' },
+    { path: '/cv', label: 'CV' },
     { path: '/research', label: 'Research' },
     { path: '/projects', label: 'Projects' },
-    { path: '/gallery', label: 'Gallery' },
     { path: '/blog', label: 'Blog' },
-    { path: '/cv', label: 'CV' },
+    { path: '/gallery', label: 'Gallery' },
   ]
 
   return (

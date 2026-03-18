@@ -4,14 +4,18 @@
       "id": "paper-1",
       "title": "Seeing Eye to Eye: Enabling Cognitive Alignment Through Shared First-Person Perspective in Human–AI Collaboration",
       "subtitle": "共享第一人称视角下的人机协作框架",
-      "authors": ["滕朱瑜", "陈培", " ", "蔡逸晨", "陆若晴", "蒋招衢", "李佳阳", "尤伟涛", "孙凌云"],
+      "authors": ["滕朱瑜", "*陈培", "蔡逸晨", "陆若晴", "蒋招衢", "李佳阳", "尤伟涛", "孙凌云"],
       "journal": "ACM Conference on Human Factors in Computing Systems (CHI) · CCFA",
       "date": "2026",
       "abstract": "针对可穿戴助手在协作中存在的理解鸿沟问题，本文提出了基于共享的第一人称视角的协作框架，利用Apple Vision Pro构建了AR系统实现人AI间的持续的认知对齐。",
       "image": "/images/research/paper-1/cover.jpg",
       "link": "https://arxiv.org/abs/2603.12701",
-      "tags": ["人AI协作", "认知对齐", "增强现实", "可穿戴助手"],
+      "tags": ["人AI协作", "认知对齐", "增强现实 (AR)", "可穿戴助手"],
       "sections": [
+        {
+          "type": "heading",
+          "content": "系统介绍视频"
+        },
         {
           "type": "text",
           "content": "可穿戴 AI 助手因其提供情境化支持的潜力而受到广泛关注。在当前的人机协作中，穿戴式 AI 助手往往面临沟通鸿沟（用户难以向 AI 描述意图）和理解鸿沟（AI 难以理解用户的物理语境）。现有的系统大多是被动响应指令的“工具”，缺乏与人类用户达成深度理解一致性的能力。"
@@ -67,7 +71,17 @@
       "abstract": "本文提出了一种新的自监督学习方法用于推荐系统，通过对比学习预训练用户和物品表示，显著提升了推荐效果。该方法能够有效缓解冷启动问题，在多个数据集上取得了SOTA效果。",
       "image": "/images/research/paper-3/cover.jpg",
       "link": "https://arxiv.org/abs/xxxx.xxxxx",
-      "tags": ["Self-Supervised", "Recommendation", "Contrastive Learning"]
+      "tags": ["Self-Supervised", "Recommendation", "Contrastive Learning"],
+      "sections": [
+        {
+          "type": "heading",
+          "content": "系统介绍视频"
+        },
+        {
+          "type": "text",
+          "content": "可穿戴 AI 助手因其提供情境化支持的潜力而受到广泛关注。在当前的人机协作中，穿戴式 AI 助手往往面临沟通鸿沟（用户难以向 AI 描述意图）和理解鸿沟（AI 难以理解用户的物理语境）。现有的系统大多是被动响应指令的“工具”，缺乏与人类用户达成深度理解一致性的能力。"
+        }
+      ]
     }
   ]
 }

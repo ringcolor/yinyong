@@ -26,8 +26,8 @@ function Home() {
         <p className={styles.bio}>{profile.bio || profile.summary}</p>
       </section>
 
-      {/* News - 暂时隐藏 */}
-      {/* {latestNews.length > 0 && (
+      {/* News */}
+      {latestNews.length > 0 && (
         <section className={styles.newsSection}>
           <h2 className={styles.sectionTitle}>News</h2>
           <div className={styles.newsList}>
@@ -42,7 +42,7 @@ function Home() {
             ))}
           </div>
         </section>
-      )} */}
+      )}
 
       {/* Recent Work */}
       <section className={styles.section}>

@@ -1,0 +1,20 @@
+{
+  "skills": [
+    {
+      "category": "编程语言",
+      "items": ["Python", "JavaScript", "SQL", "HTML/CSS"]
+    },
+    {
+      "category": "框架与工具",
+      "items": ["React", "Vite", "Git", "Figma"]
+    },
+    {
+      "category": "AI/ML",
+      "items": ["Prompt Engineering", "LLM应用开发", "RAG系统设计"]
+    },
+    {
+      "category": "语言能力",
+      "items": ["中文 (母语)", "英语 (CET-6)"]
+    }
+  ]
+}

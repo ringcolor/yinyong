@@ -1,5 +1,68 @@
+.detailWrapper {
+  display: flex;
+  gap: var(--spacing-2xl);
+  position: relative;
+}
+
 .detail {
+  flex: 1;
   max-width: 800px;
+  min-width: 0;
+}
+
+/* 目录导航 */
+.toc {
+  position: sticky;
+  top: 2rem;
+  width: 160px;
+  flex-shrink: 0;
+  height: fit-content;
+}
+
+.tocTitle {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-sm);
+}
+
+.tocList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-left: 1px solid var(--border-light);
+}
+
+.tocList li {
+  margin: 0;
+}
+
+.tocLink {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: var(--spacing-xs) var(--spacing-md);
+  transition: color var(--transition-fast);
+}
+
+.tocLink:hover {
+  color: var(--text-primary);
+}
+
+/* 响应式 - 小屏幕隐藏目录 */
+@media (max-width: 1024px) {
+  .detailWrapper {
+    flex-direction: column;
+  }
+
+  .toc {
+    display: none;
+  }
+
+  .detail {
+    max-width: 100%;
+  }
 }
 
 .notFound {
@@ -88,7 +151,7 @@
 }
 
 .meta {
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
 }
 
 .metaAuthors {
@@ -128,10 +191,24 @@
   gap: var(--spacing-sm);
 }
 
+.tagsRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-top: 0.2rem;
+  margin-bottom: var(--spacing-xl);
+}
+
+.tagsLabel {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
 .tag {
   display: inline-block;
-  font-size: var(--text-sm);
-  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: var(--text-xs);
+  padding: 2px var(--spacing-sm);
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-full);

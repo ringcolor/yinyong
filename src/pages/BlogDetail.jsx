@@ -1,27 +1,27 @@
 import { useParams, Link } from 'react-router-dom'
-import projects from '../data/projects.json'
+import blog from '../data/blog.json'
 import { getAssetUrl } from '../utils/assets'
-import styles from './ProjectDetail.module.css'
+import styles from './BlogDetail.module.css'
 
-function ProjectDetail() {
+function BlogDetail() {
   const { id } = useParams()
-  const project = projects.projects.find((p) => p.id === id)
+  const post = blog.posts.find((p) => p.id === id)
 
-  if (!project) {
+  if (!post) {
     return (
       <div className={styles.notFound}>
-        <h2>项目未找到</h2>
-        <p>抱歉，找不到该项目的详细信息。</p>
-        <Link to="/projects" className={styles.backLink}>
-          返回项目列表
+        <h2>文章未找到</h2>
+        <p>抱歉，找不到该文章的详细信息。</p>
+        <Link to="/blog" className={styles.backLink}>
+          返回文章列表
         </Link>
       </div>
     )
   }
 
   // 提取目录项
-  const headings = project.sections
-    ? project.sections
+  const headings = post.sections
+    ? post.sections
         .map((section, index) => ({
           index,
           content: section.content,
@@ -33,41 +33,41 @@ function ProjectDetail() {
   return (
     <div className={styles.detailWrapper}>
       <div className={styles.detail}>
-        <Link to="/projects" className={styles.backLink}>
-          ← 返回项目列表
+        <Link to="/blog" className={styles.backLink}>
+          ← 返回文章列表
         </Link>
 
-        <h1 className={styles.title}>{project.name}</h1>
+        <h1 className={styles.title}>{post.title}</h1>
         <div className={styles.titleRow}>
-          <p className={styles.period}>{project.period}</p>
-          {project.link && (
+          <p className={styles.date}>{post.date}</p>
+          {post.link && (
             <a
-              href={project.link}
+              href={post.link}
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.projectLink}
+              className={styles.blogLink}
             >
-              查看项目 →
+              阅读原文 →
             </a>
           )}
         </div>
 
-        {project.image && (
+        {post.image && (
           <div className={styles.imageWrapper}>
-            <img src={getAssetUrl(project.image)} alt={project.name} className={styles.image} />
+            <img src={getAssetUrl(post.image)} alt={post.title} className={styles.image} />
           </div>
         )}
 
         <div className={styles.content}>
-          {project.summary && <p className={styles.summary}>{project.summary}</p>}
+          {post.summary && <p className={styles.summary}>{post.summary}</p>}
 
-          {project.tech && project.tech.length > 0 && (
-            <div className={styles.techRow}>
-              <span className={styles.techLabel}>技术栈</span>
-              <div className={styles.techList}>
-                {project.tech.map((tech, index) => (
-                  <span key={index} className={styles.tech}>
-                    {tech}
+          {post.tags && post.tags.length > 0 && (
+            <div className={styles.tagsRow}>
+              <span className={styles.tagsLabel}>标签</span>
+              <div className={styles.tags}>
+                {post.tags.map((tag, index) => (
+                  <span key={index} className={styles.tag}>
+                    {tag}
                   </span>
                 ))}
               </div>
@@ -75,9 +75,9 @@ function ProjectDetail() {
           )}
 
           {/* 正文内容块 - 支持图文交替 */}
-          {project.sections && project.sections.length > 0 && (
+          {post.sections && post.sections.length > 0 && (
             <div className={styles.article}>
-              {project.sections.map((section, index) => (
+              {post.sections.map((section, index) => (
                 <div key={index} className={styles.articleSection}>
                   {section.type === 'text' && (
                     <p className={styles.paragraph}>{section.content}</p>
@@ -98,11 +98,6 @@ function ProjectDetail() {
                 </div>
               ))}
             </div>
-          )}
-
-          {/* 兼容旧的 details 字段 */}
-          {!project.sections && project.details && (
-            <p className={styles.details}>{project.details}</p>
           )}
         </div>
       </div>
@@ -126,4 +121,4 @@ function ProjectDetail() {
   )
 }
 
-export default ProjectDetail
+export default BlogDetail
