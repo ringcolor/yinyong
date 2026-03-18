@@ -14,7 +14,16 @@
       "sections": [
         {
           "type": "heading",
-          "content": "系统介绍视频"
+          "content": "系统视频"
+        },
+        {
+          "type": "video",
+          "src": "/videos/Eye2Eye.mp4",
+          "caption": "系统介绍&演示"
+        },
+        {
+          "type": "heading",
+          "content": "背景介绍"
         },
         {
           "type": "text",
@@ -30,17 +39,33 @@
           "caption": "共享视角下的人机协作框架"
         },
         {
-          "type": "text",
-          "content": "包含三个闭环核心组件：1)联合注意力协调 (Joint Attention Coordination)：通过追踪用户眼动与环境交互，实现人机注意力的实时同步；2）共同基础积累 (Accumulated Common Ground)：建立并持续更新关于任务状态和物体属性的共享记忆，减少重复描述的成本；2）反思性情境反馈 (Reflective Situated Feedback)：基于已建立的共同基础，提供主动且具有上下文感知能力的视觉与语音引导。"
-        },
-        {
-          "type": "image",
-          "src": "/images/research/paper-1/common_ground.png",
-          "caption": "基于RAG的记忆单元的动态创建与更新"
+          "type": "heading",
+          "content": "技术路径"
         },
         {
           "type": "text",
-          "content": "消融实验证明了技术管道的有效性和鲁棒性。"
+          "content": "基于Apple Vision Pro 的 API 实时捕获用户的眼动位点和手部动作，利用 YOLO 实例分割触发多模态大模型（VLM）推理，实现对用户第一人称视角的感知。技术核心通过结构化的“对象卡片”记忆单元存储机制与 RAG 逻辑，动态累积并修正人机间的“共同基础”，并结合闭环的 AR 视觉覆盖与情境化语音反馈，实现从被动工具向主动协作伙伴的认知对齐。"
+        },
+        {
+          "type": "images",
+          "items": [
+            {
+              "src": "/images/research/paper-1/cover.jpg",
+              "caption": "第一人称视角对实时视频流数据的处理管道"
+            },
+            {
+              "src": "/images/research/paper-1/common_ground.png",
+              "caption": "基于RAG的记忆单元的动态创建与更新"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "消融实验"
+        },
+        {
+          "type": "text",
+          "content": "实验采用离线模拟的方式，使用了来自用户研究中真实连续交互数据，对 720 个结果进行 2880 次评分。实验结果表明，完整的 Eye2Eye 框架在准确性、易用性及长时交互稳定性上均显著优于消融条件。"
         },
         {
           "type": "image",

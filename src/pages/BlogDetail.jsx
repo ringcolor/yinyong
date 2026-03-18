@@ -1,11 +1,19 @@
 import { useParams, Link } from 'react-router-dom'
 import blog from '../data/blog.json'
 import { getAssetUrl } from '../utils/assets'
+import ImagePreview from '../components/ImagePreview'
 import styles from './BlogDetail.module.css'
 
 function BlogDetail() {
   const { id } = useParams()
   const post = blog.posts.find((p) => p.id === id)
+
+  const scrollToSection = (index) => {
+    const element = document.getElementById(`section-${index}`)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
 
   if (!post) {
     return (
@@ -54,7 +62,9 @@ function BlogDetail() {
 
         {post.image && (
           <div className={styles.imageWrapper}>
-            <img src={getAssetUrl(post.image)} alt={post.title} className={styles.image} />
+            <ImagePreview src={getAssetUrl(post.image)} alt={post.title}>
+              <img src={getAssetUrl(post.image)} alt={post.title} className={styles.image} />
+            </ImagePreview>
           </div>
         )}
 
@@ -84,7 +94,34 @@ function BlogDetail() {
                   )}
                   {section.type === 'image' && (
                     <div className={styles.articleImage}>
-                      <img src={getAssetUrl(section.src)} alt={section.alt || ''} />
+                      <ImagePreview src={getAssetUrl(section.src)} alt={section.alt || ''}>
+                        <img src={getAssetUrl(section.src)} alt={section.alt || ''} />
+                      </ImagePreview>
+                      {section.caption && (
+                        <p className={styles.imageCaption}>{section.caption}</p>
+                      )}
+                    </div>
+                  )}
+                  {section.type === 'images' && section.items && (
+                    <div className={styles.imagesGrid}>
+                      {section.items.map((item, idx) => (
+                        <div key={idx} className={styles.imagesItem}>
+                          <ImagePreview src={getAssetUrl(item.src)} alt={item.alt || ''}>
+                            <img src={getAssetUrl(item.src)} alt={item.alt || ''} />
+                          </ImagePreview>
+                          {item.caption && (
+                            <p className={styles.imageCaption}>{item.caption}</p>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {section.type === 'video' && (
+                    <div className={styles.articleVideo}>
+                      <video controls>
+                        <source src={getAssetUrl(section.src)} type="video/mp4" />
+                        您的浏览器不支持视频播放
+                      </video>
                       {section.caption && (
                         <p className={styles.imageCaption}>{section.caption}</p>
                       )}
@@ -109,9 +146,12 @@ function BlogDetail() {
           <ul className={styles.tocList}>
             {headings.map((item, idx) => (
               <li key={idx}>
-                <a href={`#section-${item.index}`} className={styles.tocLink}>
+                <button
+                  onClick={() => scrollToSection(item.index)}
+                  className={styles.tocLink}
+                >
                   {item.content}
-                </a>
+                </button>
               </li>
             ))}
           </ul>
