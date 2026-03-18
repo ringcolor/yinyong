@@ -1,0 +1,18 @@
+{
+  "experiences": [
+    {
+      "id": "exp-1",
+      "title": "Eye2Eye: 共享第一人称视角的人机协作框架",
+      "role": "核心研究者",
+      "date": "2024 - 2025",
+      "paperId": "paper-1"
+    },
+    {
+      "id": "exp-2",
+      "title": "适老化AI虚拟人智能音箱",
+      "role": "产品经理",
+      "date": "2022 - 2023",
+      "projectId": "project-1"
+    }
+  ]
+}

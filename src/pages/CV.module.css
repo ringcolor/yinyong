@@ -134,14 +134,16 @@
   color: var(--text-secondary);
   text-decoration: none;
   padding: var(--spacing-xs) 0;
+  cursor: pointer;
 }
 
-.awardItem:hover {
-  color: var(--text-primary);
+.awardItem:hover .awardTitle {
+  color: var(--accent-primary);
 }
 
 .awardTitle {
   color: var(--text-primary);
+  font-weight: 600;
 }
 
 .awardLevel {

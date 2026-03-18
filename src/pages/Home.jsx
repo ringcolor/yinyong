@@ -22,7 +22,8 @@ function Home() {
       {/* Hero Section */}
       <section className={styles.hero}>
         <p className={styles.greeting}>Hey there 👋</p>
-        <h1 className={styles.name}>{profile.name}</h1>
+        <h1 className={styles.name}>I'm Zhuyu Teng.</h1>
+        {profile.slogan && <p className={styles.slogan}>{profile.slogan}</p>}
         <p className={styles.bio}>{profile.bio || profile.summary}</p>
       </section>
 
