@@ -16,7 +16,8 @@
 
 .card:hover {
   border-color: var(--accent-primary);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
 }
 
 /* 左边图片 */
@@ -34,6 +35,11 @@
   max-width: none;
   object-fit: cover;
   object-position: center;
+  transition: transform var(--transition-normal);
+}
+
+.card:hover .image {
+  transform: scale(1.05);
 }
 
 /* 右边内容 */

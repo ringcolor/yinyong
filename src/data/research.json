@@ -82,7 +82,7 @@
       "journal": "CCFA",
       "date": "2026",
       "abstract": "本文探索了视觉语言模型在医学影像分析中的应用，提出了一种新的多模态融合框架，能够有效整合文本描述和图像特征，提高诊断准确率。在多个医学影像数据集上进行了验证，显示出优越的性能。",
-      "image": "/images/research/paper-2/cover.jpg",
+      "image": "/images/research/paper-2/teaser.png",
       "link": "https://arxiv.org/abs/xxxx.xxxxx",
       "tags": ["Multi-Modal", "Medical AI", "Vision-Language"]
     },
