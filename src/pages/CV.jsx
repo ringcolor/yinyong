@@ -111,7 +111,7 @@ function CV() {
       {/* 获奖成果 */}
       {awards.awards && awards.awards.length > 0 && (
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>获奖成果</h2>
+          <h2 className={styles.sectionTitle}>获奖情况</h2>
           <div className={styles.awardList}>
             {awards.awards.map((award) => {
               // 有外部链接

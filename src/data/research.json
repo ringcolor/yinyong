@@ -27,11 +27,11 @@
         },
         {
           "type": "text",
-          "content": "可穿戴 AI 助手因其提供情境化支持的潜力而受到广泛关注。在当前的人机协作中，穿戴式 AI 助手往往面临沟通鸿沟（用户难以向 AI 描述意图）和理解鸿沟（AI 难以理解用户的物理语境）。现有的系统大多是被动响应指令的“工具”，缺乏与人类用户达成深度理解一致性的能力。"
+          "content": "可穿戴 AI 助手因其提供情境化支持的潜力而受到广泛关注。在当前的人机协作中，穿戴式 AI 助手往往面临沟通鸿沟（用户难以向 AI 描述意图）和理解鸿沟（AI 难以理解用户的物理语境）。现有的系统大多是被动响应指令的「工具」，缺乏与人类用户达成深度理解一致性的能力。"
         },
         {
           "type": "text",
-          "content": "本研究提出了 Eye2Eye 框架，旨在将共享第一人称视角 作为实现人机持续认知对齐的核心机制。该框架将 AI 从单纯的工具提升为能够“看用户所看、想用户所想”的协作伙伴。我们利用 Apple Vision Pro 构建了完整的 AR 系统原型。"
+          "content": "本研究提出了 Eye2Eye 框架，旨在将共享第一人称视角 作为实现人机持续认知对齐的核心机制。该框架将 AI 从单纯的工具提升为能够「看用户所看、想用户所想」的协作伙伴。我们利用 Apple Vision Pro 构建了完整的 AR 系统原型。"
         },
         {
           "type": "image",
@@ -44,7 +44,7 @@
         },
         {
           "type": "text",
-          "content": "基于Apple Vision Pro 的 API 实时捕获用户的眼动位点和手部动作，利用 YOLO 实例分割触发多模态大模型（VLM）推理，实现对用户第一人称视角的感知。技术核心通过结构化的“对象卡片”记忆单元存储机制与 RAG 逻辑，动态累积并修正人机间的“共同基础”，并结合闭环的 AR 视觉覆盖与情境化语音反馈，实现从被动工具向主动协作伙伴的认知对齐。"
+          "content": "基于Apple Vision Pro 的 API 实时捕获用户的眼动位点和手部动作，利用 YOLO 实例分割触发多模态大模型（VLM）推理，实现对用户第一人称视角的感知。技术核心通过结构化的「对象卡片」记忆单元存储机制与 RAG 逻辑，动态累积并修正人机间的「共同基础」，并结合闭环的 AR 视觉覆盖与情境化语音反馈，实现从被动工具向主动协作伙伴的认知对齐。"
         },
         {
           "type": "images",
@@ -94,7 +94,7 @@
       "journal": "KDD 2023",
       "date": "2023.08",
       "abstract": "本文提出了一种新的自监督学习方法用于推荐系统，通过对比学习预训练用户和物品表示，显著提升了推荐效果。该方法能够有效缓解冷启动问题，在多个数据集上取得了SOTA效果。",
-      "image": "/images/research/paper-3/cover.jpg",
+      "image": "/images/research/paper-3/teaser.png",
       "link": "https://arxiv.org/abs/xxxx.xxxxx",
       "tags": ["Self-Supervised", "Recommendation", "Contrastive Learning"],
       "sections": [
@@ -104,9 +104,57 @@
         },
         {
           "type": "text",
-          "content": "可穿戴 AI 助手因其提供情境化支持的潜力而受到广泛关注。在当前的人机协作中，穿戴式 AI 助手往往面临沟通鸿沟（用户难以向 AI 描述意图）和理解鸿沟（AI 难以理解用户的物理语境）。现有的系统大多是被动响应指令的“工具”，缺乏与人类用户达成深度理解一致性的能力。"
+          "content": "可穿戴 AI 助手因其提供情境化支持的潜力而受到广泛关注。在当前的人机协作中，穿戴式 AI 助手往往面临沟通鸿沟（用户难以向 AI 描述意图）和理解鸿沟（AI 难以理解用户的物理语境）。现有的系统大多是被动响应指令的「工具」，缺乏与人类用户达成深度理解一致性的能力。"
         }
       ]
+    },
+    {
+      "id": "paper-4",
+      "title": "待填写",
+      "subtitle": "待填写",
+      "authors": ["待填写"],
+      "journal": "待填写",
+      "date": "待填写",
+      "abstract": "待填写",
+      "image": "/images/research/paper-4/teaser.png",
+      "link": "",
+      "tags": []
+    },
+    {
+      "id": "paper-5",
+      "title": "待填写",
+      "subtitle": "待填写",
+      "authors": ["待填写"],
+      "journal": "待填写",
+      "date": "待填写",
+      "abstract": "待填写",
+      "image": "/images/research/paper-5/teaser.png",
+      "link": "",
+      "tags": []
+    },
+    {
+      "id": "paper-6",
+      "title": "待填写",
+      "subtitle": "待填写",
+      "authors": ["待填写"],
+      "journal": "待填写",
+      "date": "待填写",
+      "abstract": "待填写",
+      "image": "/images/research/paper-6/teaser.png",
+      "link": "",
+      "tags": []
+    },
+    {
+      "id": "paper-7",
+      "title": "待填写",
+      "subtitle": "待填写",
+      "authors": ["待填写"],
+      "journal": "待填写",
+      "date": "待填写",
+      "abstract": "待填写",
+      "image": "/images/research/paper-7/teaser.png",
+      "link": "",
+      "tags": []
     }
   ]
 }

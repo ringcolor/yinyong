@@ -13,6 +13,42 @@
       "role": "产品经理",
       "date": "2022 - 2023",
       "projectId": "project-1"
+    },
+    {
+      "id": "exp-3",
+      "title": "StickyNexus",
+      "role": "产品经理",
+      "date": "2022 - 2023",
+      "projectId": "project-1"
+    },
+
+    {
+      "id": "exp-4",
+      "title": "动态图",
+      "role": "产品经理",
+      "date": "2022 - 2023",
+      "projectId": "project-1"
+    },
+    {
+      "id": "exp-5",
+      "title": "虚实融合套件",
+      "role": "产品经理",
+      "date": "2022 - 2023",
+      "projectId": "project-1"
+    },
+    {
+      "id": "exp-6",
+      "title": "失能老人",
+      "role": "产品经理",
+      "date": "2022 - 2023",
+      "projectId": "project-1"
+    },
+    {
+      "id": "exp-7",
+      "title": "美团",
+      "role": "产品经理",
+      "date": "2022 - 2023",
+      "projectId": "project-1"
     }
   ]
 }

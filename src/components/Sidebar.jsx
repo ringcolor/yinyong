@@ -10,7 +10,7 @@ function Sidebar() {
     { path: '/research', label: 'Research' },
     { path: '/projects', label: 'Projects' },
     { path: '/blog', label: 'Blog' },
-    { path: '/gallery', label: 'Gallery' },
+    // { path: '/gallery', label: 'Gallery' }, // TODO: 待维护后恢复
   ]
 
   return (
