@@ -91,13 +91,13 @@
 
 .viewAll {
   font-size: 0.9rem;
-  color: var(--accent-color, #3b82f6);
+  color: var(--text-primary);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .viewAll:hover {
-  color: var(--accent-primary, #000000);
+  color: var(--text-secondary);
   text-decoration: underline;
 }
 
