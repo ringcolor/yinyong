@@ -1,18 +1,14 @@
 import { Link } from 'react-router-dom'
 import WorkCard from '../components/WorkCard'
 import profile from '../data/profile.json'
-import projects from '../data/projects.json'
 import research from '../data/research.json'
 import blog from '../data/blog.json'
 import news from '../data/news.json'
 import styles from './Home.module.css'
 
 function Home() {
-  // 合并项目和科研，按时间排序取最新的2个
-  const allWorks = [
-    ...projects.projects.map(p => ({ ...p, type: 'project', sortDate: p.period || '0' })),
-    ...research.papers.map(r => ({ ...r, type: 'research', name: r.title, sortDate: r.date || '0' }))
-  ].sort((a, b) => b.sortDate.localeCompare(a.sortDate)).slice(0, 2)
+  // 取最新的2篇论文
+  const recentPapers = research.papers.slice(0, 2).map(r => ({ ...r, type: 'research', name: r.title }))
 
   const latestPosts = blog.posts.slice(0, 2)
   const latestNews = news.news.slice(0, 2)
@@ -49,11 +45,11 @@ function Home() {
       <section className={styles.section}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>Recent Work</h2>
-          <Link to="/projects" className={styles.viewAll}>View All →</Link>
+          <Link to="/research" className={styles.viewAll}>View All →</Link>
         </div>
         <div className={styles.worksGrid}>
-          {allWorks.map((item) => (
-            <WorkCard key={item.id} item={item} type={item.type} />
+          {recentPapers.map((item) => (
+            <WorkCard key={item.id} item={item} type="research" />
           ))}
         </div>
       </section>

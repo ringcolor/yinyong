@@ -57,7 +57,7 @@
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.25rem;
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -65,10 +65,11 @@
   overflow: hidden;
 }
 
-.meta {
-  font-size: 0.875rem;
-  color: var(--text-muted);
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
   margin: 0 0 0.75rem;
+  line-height: 1.4;
 }
 
 .abstract {

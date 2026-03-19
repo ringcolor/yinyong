@@ -15,11 +15,7 @@ function ResearchCard({ paper, showDetails = false }) {
       {/* 右边内容 */}
       <div className={styles.content}>
         <h3 className={styles.title}>{paper.title}</h3>
-        <p className={styles.meta}>
-          {paper.date && <span>{paper.date}</span>}
-          {paper.date && paper.journal && <span> · </span>}
-          {paper.journal && <span>{paper.journal}</span>}
-        </p>
+        {paper.listSubtitle && <p className={styles.subtitle}>{paper.listSubtitle}</p>}
         <p className={styles.abstract}>{paper.abstract}</p>
       </div>
     </div>

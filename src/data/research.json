@@ -3,7 +3,8 @@
     {
       "id": "paper-1",
       "title": "Seeing Eye to Eye: Enabling Cognitive Alignment Through Shared First-Person Perspective in Human–AI Collaboration",
-      "subtitle": "共享第一人称视角下的人机协作框架",
+      "listSubtitle": "基于第一人称视角的AR协作助手 · CHI 2026 (CCFA)",
+      "subtitle": "基于第一人称视角的AR协作助手",
       "authors": ["滕朱瑜", "*陈培", "蔡逸晨", "陆若晴", "蒋招衢", "李佳阳", "尤伟涛", "孙凌云"],
       "journal": "ACM Conference on Human Factors in Computing Systems (CHI) · CCFA",
       "date": "2026",
@@ -17,8 +18,8 @@
           "content": "系统视频"
         },
         {
-          "type": "video",
-          "src": "/videos/Eye2Eye.mp4",
+          "type": "youtube",
+          "videoId": "ikJWvHAC5lY",
           "caption": "系统介绍&演示"
         },
         {
@@ -76,20 +77,59 @@
     },
     {
       "id": "paper-2",
-      "title": "Multi-Modal Medical Image Analysis with Vision-Language Models",
-      "subtitle": "CVPR 2024",
-      "authors": ["张三", "王五", "赵六"],
-      "journal": "CCFA",
+      "title": "STICKYNEXUS: Leveraging Sticky Note Interactions to Improve Information Management in Artificial Intelligence-Assisted Design",
+      "listSubtitle": "基于多维语义管理的AI辅助创意支持系统 · JMD 2026 (SCI)",
+      "subtitle": "基于多维语义管理的AI辅助创意支持系统",
+      "authors": ["*陈培", "滕朱瑜", "张宏博", "蒋招衢", "宋文铮", "任怡雯", "尤伟涛", "孙凌云"],
+      "journal": "Journal of Mechanical Design (JMD) · SCI",
       "date": "2026",
-      "abstract": "本文探索了视觉语言模型在医学影像分析中的应用，提出了一种新的多模态融合框架，能够有效整合文本描述和图像特征，提高诊断准确率。在多个医学影像数据集上进行了验证，显示出优越的性能。",
+      "abstract": "结合生成式 AI 与便签交互特性，通过全局语义聚类与局部多维发散，支持用户在创意过程中高效捕获、组织、迭代 AI 生成的想法碎片，解决创意过程中对话式LLM上下文管理的难题。",
       "image": "/images/research/paper-2/teaser.png",
-      "link": "https://arxiv.org/abs/xxxx.xxxxx",
-      "tags": ["Multi-Modal", "Medical AI", "Vision-Language"]
+      "link": "https://asmedigitalcollection.asme.org/mechanicaldesign/article-abstract/148/1/011401/1218723/stickynexus-Leveraging-Sticky-Note-Interactions-to?redirectedFrom=fulltext",
+      "tags": ["人机协同设计", "非线性协作", "多维语义分析", "生成式人工智能", "设计辅助工具"],
+      "sections": [
+        {
+          "type": "heading",
+          "content": "系统视频"
+        },
+        {
+          "type": "youtube",
+          "videoId": "_2VFbGCzA_k",
+          "caption": "系统介绍&演示"
+        },
+        {
+          "type": "heading",
+          "content": "背景介绍"
+        },
+        {
+          "type": "image",
+          "src": "/images/research/paper-2/background.png",
+          "caption": "待填写"
+        },
+        {
+          "type": "text",
+          "content": "待填写"
+        },
+        {
+          "type": "heading",
+          "content": "系统实现与AI策略"
+        },
+        {
+          "type": "text",
+          "content": "待填写"
+        },
+        {
+          "type": "image",
+          "src": "/images/research/paper-2/system.png",
+          "caption": "待填写"
+        }
+      ]
     },
     {
       "id": "paper-3",
-      "title": "Self-Supervised Learning for Recommendation Systems",
-      "subtitle": "KDD 2023",
+      "title": "基于 Mixed Reality 的智能 3D 设计辅助系统",
+      "listSubtitle": "Mixed Reality 智能设计辅助研究（审稿中）",
+      "subtitle": "基于 Mixed Reality 的智能 3D 设计辅助系统",
       "authors": ["张三", "李四"],
       "journal": "KDD 2023",
       "date": "2023.08",
@@ -111,6 +151,7 @@
     {
       "id": "paper-4",
       "title": "待填写",
+      "listSubtitle": "待填写",
       "subtitle": "待填写",
       "authors": ["待填写"],
       "journal": "待填写",
@@ -123,6 +164,7 @@
     {
       "id": "paper-5",
       "title": "待填写",
+      "listSubtitle": "待填写",
       "subtitle": "待填写",
       "authors": ["待填写"],
       "journal": "待填写",
@@ -135,6 +177,7 @@
     {
       "id": "paper-6",
       "title": "待填写",
+      "listSubtitle": "待填写",
       "subtitle": "待填写",
       "authors": ["待填写"],
       "journal": "待填写",
@@ -147,6 +190,7 @@
     {
       "id": "paper-7",
       "title": "待填写",
+      "listSubtitle": "待填写",
       "subtitle": "待填写",
       "authors": ["待填写"],
       "journal": "待填写",

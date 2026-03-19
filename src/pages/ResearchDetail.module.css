@@ -273,6 +273,23 @@
   display: block;
 }
 
+.youtubeWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 比例 */
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.youtubeWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-lg);
+}
+
 .imagesGrid {
   display: flex;
   gap: var(--spacing-md);
