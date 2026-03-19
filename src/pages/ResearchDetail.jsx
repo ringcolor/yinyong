@@ -63,7 +63,17 @@ function ResearchDetail() {
         <div className={styles.content}>
           <div className={styles.meta}>
             {paper.authors && paper.authors.length > 0 && (
-              <p className={styles.metaAuthors}>{paper.authors.join(', ')}</p>
+              <p className={styles.metaAuthors}>
+                {paper.authors.map((author, index) => {
+                  const isMe = author.includes('Zhuyu Teng')
+                  return (
+                    <span key={index}>
+                      {isMe ? <strong>{author}</strong> : author}
+                      {index < paper.authors.length - 1 && ', '}
+                    </span>
+                  )
+                })}
+              </p>
             )}
             <p className={styles.metaInfo}>
               {paper.journal && <span>{paper.journal}</span>}

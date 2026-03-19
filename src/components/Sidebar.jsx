@@ -8,7 +8,7 @@ function Sidebar() {
     { path: '/', label: 'Home' },
     { path: '/cv', label: 'CV' },
     { path: '/research', label: 'Research' },
-    { path: '/projects', label: 'Projects' },
+    { path: '/projects', label: 'Project' },
     { path: '/blog', label: 'Blog' },
     // { path: '/gallery', label: 'Gallery' }, // TODO: 待维护后恢复
   ]

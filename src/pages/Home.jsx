@@ -1,14 +1,17 @@
 import { Link } from 'react-router-dom'
 import WorkCard from '../components/WorkCard'
 import profile from '../data/profile.json'
+import projects from '../data/projects.json'
 import research from '../data/research.json'
 import blog from '../data/blog.json'
 import news from '../data/news.json'
 import styles from './Home.module.css'
 
 function Home() {
-  // 取最新的2篇论文
-  const recentPapers = research.papers.slice(0, 2).map(r => ({ ...r, type: 'research', name: r.title }))
+  // 取最新的1个项目和1篇论文混合展示
+  const recentProject = projects.projects.slice(0, 1).map(p => ({ ...p, type: 'project', name: p.name }))
+  const recentPaper = research.papers.slice(0, 1).map(r => ({ ...r, type: 'research', name: r.title }))
+  const recentWorks = [...recentProject, ...recentPaper]
 
   const latestPosts = blog.posts.slice(0, 2)
   const latestNews = news.news.slice(0, 2)
@@ -48,8 +51,8 @@ function Home() {
           <Link to="/research" className={styles.viewAll}>View All →</Link>
         </div>
         <div className={styles.worksGrid}>
-          {recentPapers.map((item) => (
-            <WorkCard key={item.id} item={item} type="research" />
+          {recentWorks.map((item) => (
+            <WorkCard key={item.id} item={item} type={item.type} />
           ))}
         </div>
       </section>

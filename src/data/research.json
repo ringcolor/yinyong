@@ -3,9 +3,9 @@
     {
       "id": "paper-1",
       "title": "Seeing Eye to Eye: Enabling Cognitive Alignment Through Shared First-Person Perspective in Human–AI Collaboration",
-      "listSubtitle": "基于第一人称视角的AR协作助手 · CHI 2026 (CCFA)",
+      "listSubtitle": "基于第一人称视角的AR协作助手 · CHI 2026 (CCFA) · 论文一作",
       "subtitle": "基于第一人称视角的AR协作助手",
-      "authors": ["滕朱瑜", "*陈培", "蔡逸晨", "陆若晴", "蒋招衢", "李佳阳", "尤伟涛", "孙凌云"],
+      "authors": ["Zhuyu Teng", "*Pei Chen", "Yichen Cai", "Ruoqing Lu", "Zhaoqu Jiang", "Jiayang Li", "Weitao You", "Lingyun Sun"],
       "journal": "ACM Conference on Human Factors in Computing Systems (CHI) · CCFA",
       "date": "2026",
       "abstract": "针对可穿戴助手在协作中存在的理解鸿沟问题，本文提出了基于共享的第一人称视角的协作框架，利用Apple Vision Pro构建了AR系统实现人AI间的持续的认知对齐。",
@@ -21,6 +21,10 @@
           "type": "youtube",
           "videoId": "ikJWvHAC5lY",
           "caption": "系统介绍&演示"
+        },
+        {
+          "type": "text",
+          "content": "摘要：虽然多模态人工智能（AI）取得了显著进展，但现有的视觉助手在协同任务中往往效率不高，主要存在两大“鸿沟”：一是由于交互通道不匹配，导致用户必须将丰富的并行意图转化为语言指令的“沟通鸿沟”；二是 AI 难以解读微妙具身线索的“理解鸿沟” 。为此，我们提出了 Eye2Eye 框架，将第一人称视角作为人机认知对齐的通道，集成了实现流畅焦点对齐的共同注意力协调、维护动态演进共识的可修正记忆，以及允许用户澄清并优化 AI 理解的反思性反馈。用户研究显示，该框架显著缩短了任务完成时间，减轻了交互负载并增强了信任感，有力证明了其各组件在改善人机协同方面的有效性 。"
         },
         {
           "type": "heading",
@@ -78,9 +82,9 @@
     {
       "id": "paper-2",
       "title": "STICKYNEXUS: Leveraging Sticky Note Interactions to Improve Information Management in Artificial Intelligence-Assisted Design",
-      "listSubtitle": "基于多维语义管理的AI辅助创意支持系统 · JMD 2026 (SCI)",
+      "listSubtitle": "基于多维语义管理的AI辅助创意支持系统 · JMD 2026 (SCI) · 学生一作",
       "subtitle": "基于多维语义管理的AI辅助创意支持系统",
-      "authors": ["*陈培", "滕朱瑜", "张宏博", "蒋招衢", "宋文铮", "任怡雯", "尤伟涛", "孙凌云"],
+      "authors": ["*Pei Chen", "Zhuyu Teng", "Hongbo Zhang", "Zhaoqu Jiang", "Wenzheng Song", "Yiwen Ren", "Weitao You", "Lingyun Sun"],
       "journal": "Journal of Mechanical Design (JMD) · SCI",
       "date": "2026",
       "abstract": "结合生成式 AI 与便签交互特性，通过全局语义聚类与局部多维发散，支持用户在创意过程中高效捕获、组织、迭代 AI 生成的想法碎片，解决创意过程中对话式LLM上下文管理的难题。",
@@ -98,107 +102,265 @@
           "caption": "系统介绍&演示"
         },
         {
+          "type": "text",
+          "content": "摘要：近年来，生成式人工智能（GenAI）已成为辅助设计师获取跨学科信息并拓展创意空间的关键工具 。然而，海量的 AI 生成信息往往令设计师应接不暇，增加了提炼核心洞察的难度 。此外，现有的对话式 AI 工具难以支持对创新产出至关重要的非线性设计思维。为了应对这些挑战，我们提出了 STICKYNEXUS。该系统支持设计师在与 AI 协作时，从全局和局部双重视角对多样化信息进行引导与合成 。STICKYNEXUS 允许设计师通过分析便签簇之间的关系来构建完整的设计概念，并能基于单个便签的见解促进进一步的发散思维与迭代完善 。用户研究（N=18）表明，STICKYNEXUS 显著增强了设计师探索细节信息的能力，从而解锁了新的设计可能性并促进了创意探索 。"
+        },
+        {
           "type": "heading",
           "content": "背景介绍"
         },
         {
-          "type": "image",
-          "src": "/images/research/paper-2/background.png",
-          "caption": "待填写"
+          "type": "text",
+          "content": "在创意设计的“模糊前期”，GenAI 虽然能提供海量跨学科信息，但其碎片化、线性的对话模式往往导致信息过载，且难以支持设计师的非线性思考 。通过对 8 位资深设计师的形成性研究发现，用户迫切需要 AI 能够理解便签的“位置、移动、聚类”等物理交互背后隐含的设计意图 。"
         },
         {
-          "type": "text",
-          "content": "待填写"
+          "type": "images",
+          "items": [
+            {
+              "src": "/images/research/paper-2/idea.png",
+              "caption": "设计师与 AI 的共享画布系统，支持多维语义扩展与可视化交互，实现高效创意协作。"
+            },
+            {
+              "src": "/images/research/paper-2/properties.jpg",
+              "caption": "便利贴交互特性"
+            }
+          ]
         },
         {
           "type": "heading",
-          "content": "系统实现与AI策略"
+          "content": "系统实现"
         },
         {
           "type": "text",
-          "content": "待填写"
+          "content": "系统采用了「全局理解」与「局部重组」的双重管理策略：\n• 全局模式：AI 根据 KJ 法或 FBS 模型等设计方法论，自动分析便签布局并聚类，帮助设计师从宏观视角构建设计方案。\n• 局部模式：支持对单条便签进行「多维发散」或「拆解重组」，将视觉和文本数据转化为可调度的关键词，实现创意的精准迭代。"
         },
         {
           "type": "image",
           "src": "/images/research/paper-2/system.png",
-          "caption": "待填写"
+          "caption": "左：局部模式；右：全局模式"
+        },
+        {
+          "type": "heading",
+          "content": "AI策略"
+        },
+        {
+          "type": "text",
+          "content": "1. 局部发散策略-多维语义发散(Multidimensional Expansion)ening)：定义多维度拓展，COT引导AI发散生成多样化变体。 "
+        },
+        {
+          "type": "text",
+          "content": "2. 局部重组策略-解构与重组(Splitting & Reorganization)：Few-shot Learning识别并提取多模态便签中的关键词；用户手动筛选关键词进行组合创新，结合AI随机生成的变体产出新的产品概念。"
+        },
+        {
+          "type": "text",
+          "content": "3. 全局理解策略-语义聚类与逻辑对齐(Global Understanding)：AI 抓取便签的物理交互数据（位置坐标、移动轨迹、聚类关系），理解设计意图；基于经典设计框架生成语义聚类、逻辑关系链。"
+        },
+        {
+          "type": "image",
+          "src": "/images/research/paper-2/pipeline.png",
+          "caption": "workflow说明"
         }
       ]
     },
     {
       "id": "paper-3",
-      "title": "基于 Mixed Reality 的智能 3D 设计辅助系统",
-      "listSubtitle": "Mixed Reality 智能设计辅助研究（审稿中）",
-      "subtitle": "基于 Mixed Reality 的智能 3D 设计辅助系统",
-      "authors": ["张三", "李四"],
-      "journal": "KDD 2023",
-      "date": "2023.08",
+      "title": "Perceive, Trigger, Present: Unlocking AI’s Situational Judgment Ability to Support 3D Design in Mixed Reality",
+      "listSubtitle": "基于Mixed Reality的智能3D设计辅助系统（审稿中）· IJHCS 2026 (SCI Q1) · 论文一作",
+      "subtitle": "基于 Mixed Reality 的智能 3D 设计辅助研究",
+      "authors": ["Zhuyu Teng", "*Pei Chen", "Yiwen Ren", "Zhaoqu Jiang", "Hongbo Zhang", "Zhuoyi Cheng", "Xuanhui Liu", "Weitao You", "Lingyun Sun"],
+      "journal": "International Journal of Human-Computer Studies (IJHCS) · SCI Q1",
+      "date": "审稿中",
       "abstract": "本文提出了一种新的自监督学习方法用于推荐系统，通过对比学习预训练用户和物品表示，显著提升了推荐效果。该方法能够有效缓解冷启动问题，在多个数据集上取得了SOTA效果。",
       "image": "/images/research/paper-3/teaser.png",
-      "link": "https://arxiv.org/abs/xxxx.xxxxx",
-      "tags": ["Self-Supervised", "Recommendation", "Contrastive Learning"],
+      "link": "",
+      "tags": ["人AI协同", "3D设计", "情境意识", "混合现实 MR"],
       "sections": [
         {
           "type": "heading",
-          "content": "系统介绍视频"
+          "content": "系统视频"
+        },
+        {
+          "type": "youtube",
+          "videoId": "Q7aDnPky_zU",
+          "caption": "研究介绍"
+        },
+        {
+          "type": "heading",
+          "content": "研究简介"
         },
         {
           "type": "text",
-          "content": "可穿戴 AI 助手因其提供情境化支持的潜力而受到广泛关注。在当前的人机协作中，穿戴式 AI 助手往往面临沟通鸿沟（用户难以向 AI 描述意图）和理解鸿沟（AI 难以理解用户的物理语境）。现有的系统大多是被动响应指令的「工具」，缺乏与人类用户达成深度理解一致性的能力。"
+          "content": "本研究聚焦于 混合现实 (MR) 环境下 3D 设计 的智能辅助，旨在解决人类在复杂信息环境中难以做出及时情境判断的挑战 。通过引入创新的 Perceive-Trigger-Present (PTP) 理论框架，系统地回答了 AI 在协同设计中“感知什么”、“何时干预”以及“如何呈现”的核心问题。"
+        },
+        {
+          "type": "image",
+          "src": "/images/research/paper-3/teaser.png",
+          "caption": "场景展示"
         }
       ]
     },
     {
       "id": "paper-4",
-      "title": "待填写",
-      "listSubtitle": "待填写",
-      "subtitle": "待填写",
-      "authors": ["待填写"],
-      "journal": "待填写",
-      "date": "待填写",
-      "abstract": "待填写",
-      "image": "/images/research/paper-4/teaser.png",
+      "title": "Real-Time Dynamic Graph Construction and Reasoning to Support Human-AI Collaborative Product Conceptual Design",
+      "listSubtitle": "基于实时动态图谱推理的人机协同产品概念设计系统（审稿中）· JED 2026 (SCI Q2) · 学生二作",
+      "subtitle": "基于实时动态图谱推理的人机协同产品概念设计系统",
+      "authors": ["Pei Chen", "Wenzheng Song", "Zhuyu Teng", "Xilai Wang", "Hongbo Zhang", "Zihong Zhou", "*Lingyun Sun"],
+      "journal": "Journal of Engineering Design（JED）·SCI Q2",
+      "date": "2026",
+      "abstract": "本项目开发了一种实时动态图构建与推理方法，利用LLM实时提取设计概念并构建结构化逻辑链形成动态知识图谱，支持同步设计师的认知状态与设计概念的协同推理。",
+      "image": "/images/research/paper-4/cover.png",
       "link": "",
-      "tags": []
+      "tags": ["人机联合推理", "动态图谱构建", "产品概念设计", "生成式人工智能"],
+      "sections": [
+        {
+          "type": "heading",
+          "content": "研究简介"
+        },
+        {
+          "type": "image",
+          "src": "/images/research/paper-4/teaser.png",
+          "caption": "系统框架"
+        },
+        {
+          "type": "text",
+          "content": "摘要：在产品概念设计过程中，设计师的构思具有高度的动态性和开放性 。尽管现有的生成式人工智能（AI）扩展了设计空间，但它难以与设计师的认知状态保持同步，并进行深层的协作推理。为了解决这一问题，本文提出了一种实时动态图构建与推理方法 。该方法采用“需求-功能-逻辑-物理”（RFLP）本体作为结构主干，利用大语言模型（LLMs）提取概念和关系，以构建结构化的逻辑链 。在图推理阶段，大语言模型根据图的拓扑结构进行路径回溯和节点扩展，从而提供推动设计创意协同演化的建议。我们在一个交互式白板原型中实现了这种实时可视化的动态图推理方法。一项涉及 24 名参与者的用户研究表明，与仅含聊天功能的 AI 基准相比，所提出的结构化方法显著提高了最终设计方案的工程质量，同时确保了人机协作体验的可解释性和可控性。"
+        }
+      ]
     },
     {
       "id": "paper-5",
-      "title": "待填写",
-      "listSubtitle": "待填写",
-      "subtitle": "待填写",
-      "authors": ["待填写"],
-      "journal": "待填写",
-      "date": "待填写",
-      "abstract": "待填写",
-      "image": "/images/research/paper-5/teaser.png",
-      "link": "",
-      "tags": []
+      "title": "SocializeChat: a GPT-based AAC Tool for Social Communication Through Eye Gazing",
+      "listSubtitle": "面向运动障碍者的个性化社交辅助沟通工具 · Ubicomp Adjunct 2023 (CCFA) · 论文三作",
+      "subtitle": "面向运动障碍者的个性化社交辅助沟通工具",
+      "authors": ["Yuyang Fang", "Yunkai Xu", "Zhuyu Teng", "Zhaoqu Jiang", "*Wei Xiang"],
+      "journal": "In Adjunct Proceedings of the ACM International Joint Conference on Pervasive and Ubiquitous Computing（Ubicomp）· CCFA",
+      "date": "2023",
+      "abstract": "SocializeChat 是一款集成 GPT-4 技术并支持眼动输入的系统，旨在通过大语言模型（LLM）理解用户的个性化偏好，并根据社交亲疏关系自动调整语气，从而提升患者的社交参与感与心理福祉 。",
+      "image": "/images/research/paper-5/teaser.jpg",
+      "link": "https://dl.acm.org/doi/abs/10.1145/3594739.3610705",
+      "tags": ["大语言模型","话题偏好建模","眼动追踪交互","个性化社交辅助工具"],
+      "sections": [
+        {
+          "type": "heading",
+          "content": "系统简介"
+        },
+        {
+          "type": "text",
+          "content": "面向有运动和语言障碍的人，他们沟通能力有限，导致严重依赖增强和替代沟通 （AAC） 工具。现有的商业 AAC 工具提供固定词的简单组合，满足基本生理需求的同时，在社交交流中遇到巨大挑战。因此，本文开发了 SocializeChat，它采用 LLM 技术来促进通过注视输入进行社交聊天。"
+        },
+        {
+          "type": "image",
+          "src": "/images/research/paper-5/system.png",
+          "caption": "系统的处理流程和使用场景展示"
+        },
+        {
+          "type": "text",
+          "content": "SocializeChat 是一款集成 GPT-4 技术并支持眼动追踪输入的创新 AAC 系统，其核心在于通过动态数据集实现个性化的社交对话。主要依赖两个核心数据指标：\n• 内容偏好 (Content Preferences)：通过分析用户的博客、日记及浏览记录，将用户对不同话题的兴趣分为四个等级（从“热衷参与”到“冷淡抵制”）。\n• 社交亲密度 (Social Closeness)：将沟通对象的亲疏关系分为三个等级（正式、中等、亲密），以此调整生成的语言风格。"
+        },
+        {
+          "type": "heading",
+          "content": "工作流程"
+        },
+        {
+          "type": "text",
+          "content": "• 初始化阶段：利用 GPT-4 的联网搜索与推理能力，从用户提供的历史资料中提取话题偏好，并建立初始数据集。 \n• 沟通阶段：1）通过语音转文本引擎捕捉对方的话语；2）GPT-4 根据当前的社交亲密度和话题偏好，实时生成 6 个候选句子供用户选择；3）系统根据用户的最终选择不断迭代更新数据集，使建议越来越符合用户的真实意图。"
+        }
+      ]
     },
     {
       "id": "paper-6",
-      "title": "待填写",
-      "listSubtitle": "待填写",
-      "subtitle": "待填写",
-      "authors": ["待填写"],
-      "journal": "待填写",
-      "date": "待填写",
-      "abstract": "待填写",
+      "title": "SocializeChat: A GPT-Based AAC Tool Grounded in Personal Memories to Support Social Communication",
+      "listSubtitle": "面向失能老人的社交辅助表达的沟通工具 · IEEE SMC 2025 (CCFB) · 学生三作",
+      "subtitle": "面向失能老人的社交辅助表达的沟通工具",
+      "authors": ["*Wei Xiang", "Yuyang Fang", "Yunkai Xu", "Zhuyu Teng", "Zhaoqu Jiang", "Beijia Hu", "Jinguo Yang"],
+      "journal": "IEEE International Conference on Systems, Man, and Cybernetics (IEEE SMC) · CCFB",
+      "date": "2025",
+      "abstract": "基于个人记忆记录的 GPT 辅助通讯（AAC）工具，基于NLP 关键词提取与向量匹配，记忆数据库中进行模糊匹配，生成个性化的社交表达建议，提升老年人的社交参与感与心理福祉。",
       "image": "/images/research/paper-6/teaser.png",
-      "link": "",
-      "tags": []
+      "link": "https://arxiv.org/abs/2510.19017",
+      "tags": ["大语言模型","语义匹配与词嵌入","动态记忆循环","个性化社交辅助工具"],
+      "sections": [
+        {
+          "type": "heading",
+          "content": "背景介绍"
+        },
+        {
+          "type": "text",
+          "content": "患有语言障碍的老年人常因沟通工具过于功能化而面临社交边缘化。这是一款基于个人记忆记录的 GPT 辅助通讯（AAC）工具，通过先进的语义匹配技术，从用户的历史生活记录中检索相关素材，并结合话题偏好与人际亲密度生成定制化的回复建议。系统引入了“态度标签”允许用户快速表达对建议的接受程度，优化生成效果。"
+        },
+        {
+          "type": "heading",
+          "content": "系统界面"
+        },
+        {
+          "type": "image",
+          "src": "/images/research/paper-6/system.png",
+          "caption": "系统使用流程"
+        },
+        {
+          "type": "text",
+          "content": "• 创新的记忆检索技术：开发了一套基于 Apple NLP 框架和词嵌入（Word Embedding）技术的系统，能从海量文本记录中精准提取并匹配与当前对话相关的“陈年往事”。\n• 动态记忆循环：系统不仅提取旧记忆，还将当前的对话内容自动存入数据库，形成“交流产生新记忆，新记忆支持未来交流”的闭环 。"
+        }
+      ]
     },
     {
       "id": "paper-7",
-      "title": "待填写",
-      "listSubtitle": "待填写",
-      "subtitle": "待填写",
-      "authors": ["待填写"],
-      "journal": "待填写",
-      "date": "待填写",
-      "abstract": "待填写",
+      "title": "Exploring the role of Mixed Reality on Design Representations to Enhance User-Involved Co-Design Communication",
+      "listSubtitle": "基于混合现实MR的参与式设计系统 · CSCW 2025 (CCFA) · 学生五作",
+      "subtitle": "基于混合现实MR的参与式设计系统",
+      "authors": ["Pei Chen", "*Kexing Wang", "Xuanhui Liu", "Hongbo Zhang", "Zhuyu Teng", "*Lingyun Sun"],
+      "journal": "ACM Conference on Computer Supported Cooperative Work and Social Computing（CSCW）· CCFA",
+      "date": "2025",
+      "abstract": "针对普通用户缺乏3D空间表达技能的难题，DuoMR系统支持设计师与用户在共享的MR空间内，通过直观的手势指令（如旋转、拉伸）快速创建3D模型，并能模拟产品动态特征与真实交互场景 。",
       "image": "/images/research/paper-7/teaser.png",
-      "link": "",
-      "tags": []
+      "link": "https://dl.acm.org/doi/abs/10.1145/3710979",
+      "tags": ["协同设计","混合现实MR","3D建模与表达","用户参与式设计"],
+      "sections": [
+        {
+          "type": "heading",
+          "content": "系统视频"
+        },
+        {
+          "type": "youtube",
+          "videoId": "待填写",
+          "caption": "系统介绍&演示"
+        },
+        {
+          "type": "heading",
+          "content": "背景介绍"
+        },
+        {
+          "type": "text",
+          "content": "针对 3D 产品设计早期沟通效率低、非专业用户表达难的痛点，定义并开发了一套基于 HoloLens 的混合现实协作系统 。该系统通过直观的手势建模与空间同步技术，将设计师与用户的沟通共识提升了 10% 以上（基于需求理解得分），显著降低了认知负荷。"
+        },
+        {
+          "type": "heading",
+          "content": "系统使用场景"
+        },
+        {
+          "type": "image",
+          "src": "/images/research/paper-7/case.png",
+          "caption": "基于HoloLens的MR协作设计系统实验案例展示"
+        },
+        {
+          "type": "image",
+          "src": "/images/research/paper-7/teaser.png",
+          "caption": "故事版展示了系统在不同设计阶段的应用场景：从初步概念构思到细节迭代，用户通过手势与设计师在共享的 MR 空间内进行高效沟通。"
+        },
+        {
+          "type": "heading",
+          "content": "技术实现"
+        },
+        {
+          "type": "text",
+          "content": "• 极简手势建模 (Rapid 3D Modeling)：支持“旋转、拉伸、路径扫略”等直观指令，让 0 基础用户也能在秒级时间内完成 3D 造型表达 。\n• 动态特征转换 (Dynamic Simulation)：通过手势拖拽模拟产品的折叠、升降等交互逻辑。\n全景场景构建 (Custom Scenario Setup)：利用 MR 的物理感知，将虚拟模型与真实环境结合，支持 1:1 的人体工学测试。\n• 多端视觉同步 (Vision Synchronization)：基于 Azure Spatial Anchor 实现跨设备坐标对齐，确保所有协作者拥有统一的“空间真值”。"
+        },
+        {
+          "type": "image",
+          "src": "/images/research/paper-7/implementation.png",
+          "caption": "3D建模的技术实现"
+        }
+      ]
     }
   ]
 }
