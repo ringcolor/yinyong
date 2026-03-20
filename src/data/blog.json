@@ -2,27 +2,30 @@
   "posts": [
     {
       "id": "post-1",
-      "title": "LLM as a Judge",
+      "title": "LLM as a Judge（建设中）",
       "date": "2024.10.15",
       "summary": "本文详细介绍Transformer的核心组件，包括自注意力机制、位置编码、多头注意力等。",
       "tags": ["Transformer", "深度学习", "NLP"],
-      "link": "https://blog.example.com/transformer"
+      "link": "https://blog.example.com/transformer",
+      "building": true
     },
     {
       "id": "post-2",
-      "title": "RAG技术实战指南",
+      "title": "RAG技术实战指南（建设中）",
       "date": "2024.09.20",
       "summary": "从零开始构建一个RAG系统，包括向量数据库选型、检索策略、Prompt设计等。",
       "tags": ["RAG", "LLM", "知识库"],
-      "link": "https://blog.example.com/rag-guide"
+      "link": "https://blog.example.com/rag-guide",
+      "building": true
     },
     {
       "id": "post-3",
-      "title": "设计研究的三种类型，课程作业ppt",
+      "title": "设计研究的三种类型，课程作业ppt（建设中）",
       "date": "2024.08.05",
       "summary": "推荐系统的完整学习路线，从协同过滤到深度学习推荐模型。",
       "tags": ["推荐系统", "机器学习"],
-      "link": "https://blog.example.com/recommendation"
+      "link": "https://blog.example.com/recommendation",
+      "building": true
     }
   ]
 }

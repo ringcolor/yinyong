@@ -17,6 +17,13 @@ function ResearchCard({ paper, showDetails = false }) {
         <h3 className={styles.title}>{paper.title}</h3>
         {paper.listSubtitle && <p className={styles.subtitle}>{paper.listSubtitle}</p>}
         <p className={styles.abstract}>{paper.abstract}</p>
+        {paper.tags && paper.tags.length > 0 && (
+          <div className={styles.tags}>
+            {paper.tags.map((tag, index) => (
+              <span key={index} className={styles.tag}>{tag}</span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   )

@@ -113,6 +113,11 @@
 
 .contactIcon {
   font-size: var(--text-base);
+  flex-shrink: 0;
+}
+
+.contactText {
+  font-size: var(--text-sm);
 }
 
 @media (max-width: 768px) {

@@ -72,7 +72,7 @@ function CV() {
       {/* AI项目经历 */}
       {experiences.experiences && experiences.experiences.length > 0 && (
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>AI项目经历</h2>
+          <h2 className={styles.sectionTitle}>AI项目经历（建设中）</h2>
           <div className={styles.awardList}>
             {experiences.experiences.map((exp) => {
               // 有论文ID
@@ -111,7 +111,7 @@ function CV() {
       {/* 获奖成果 */}
       {awards.awards && awards.awards.length > 0 && (
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>获奖情况</h2>
+          <h2 className={styles.sectionTitle}>获奖&荣誉</h2>
           <div className={styles.awardList}>
             {awards.awards.map((award) => {
               // 有外部链接

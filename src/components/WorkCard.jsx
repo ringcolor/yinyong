@@ -21,6 +21,13 @@ function WorkCard({ item, type }) {
           <h3 className={styles.title}>{title}</h3>
           {period && <p className={styles.period}>{period}</p>}
           {summary && <p className={styles.summary}>{summary}</p>}
+          {item.tags && item.tags.length > 0 && (
+            <div className={styles.tags}>
+              {item.tags.slice(0, 3).map((tag, index) => (
+                <span key={index} className={styles.tag}>{tag}</span>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </Link>

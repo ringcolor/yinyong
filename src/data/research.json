@@ -11,7 +11,7 @@
       "abstract": "针对可穿戴助手在协作中存在的理解鸿沟问题，本文提出了基于共享的第一人称视角的协作框架，利用Apple Vision Pro构建了AR系统实现人AI间的持续的认知对齐。",
       "image": "/images/research/paper-1/cover.jpg",
       "link": "https://arxiv.org/abs/2603.12701",
-      "tags": ["人AI协作", "认知对齐", "增强现实 (AR)", "可穿戴助手"],
+      "tags": ["人AI协作","VLM", "认知对齐", "增强现实 (AR)", "可穿戴助手"],
       "sections": [
         {
           "type": "heading",
@@ -90,7 +90,7 @@
       "abstract": "结合生成式 AI 与便签交互特性，通过全局语义聚类与局部多维发散，支持用户在创意过程中高效捕获、组织、迭代 AI 生成的想法碎片，解决创意过程中对话式LLM上下文管理的难题。",
       "image": "/images/research/paper-2/teaser.png",
       "link": "https://asmedigitalcollection.asme.org/mechanicaldesign/article-abstract/148/1/011401/1218723/stickynexus-Leveraging-Sticky-Note-Interactions-to?redirectedFrom=fulltext",
-      "tags": ["人机协同设计", "非线性协作", "多维语义分析", "生成式人工智能", "设计辅助工具"],
+      "tags": ["人机协同设计", "非线性协作", "多维语义分析", "LLM", "设计辅助工具"],
       "sections": [
         {
           "type": "heading",
@@ -173,7 +173,7 @@
       "abstract": "本文提出了一种新的自监督学习方法用于推荐系统，通过对比学习预训练用户和物品表示，显著提升了推荐效果。该方法能够有效缓解冷启动问题，在多个数据集上取得了SOTA效果。",
       "image": "/images/research/paper-3/teaser.png",
       "link": "",
-      "tags": ["人AI协同", "3D设计", "情境意识", "混合现实 MR"],
+      "tags": ["人AI协同", "3D设计", "情境意识", "混合现实MR","多模态大模型"],
       "sections": [
         {
           "type": "heading",
@@ -210,7 +210,7 @@
       "abstract": "本项目开发了一种实时动态图构建与推理方法，利用LLM实时提取设计概念并构建结构化逻辑链形成动态知识图谱，支持同步设计师的认知状态与设计概念的协同推理。",
       "image": "/images/research/paper-4/cover.png",
       "link": "",
-      "tags": ["人机联合推理", "动态图谱构建", "产品概念设计", "生成式人工智能"],
+      "tags": ["人机联合推理", "动态图谱构建", "LLM","产品概念设计", "生成式人工智能"],
       "sections": [
         {
           "type": "heading",
@@ -238,7 +238,7 @@
       "abstract": "SocializeChat 是一款集成 GPT-4 技术并支持眼动输入的系统，旨在通过大语言模型（LLM）理解用户的个性化偏好，并根据社交亲疏关系自动调整语气，从而提升患者的社交参与感与心理福祉 。",
       "image": "/images/research/paper-5/teaser.jpg",
       "link": "https://dl.acm.org/doi/abs/10.1145/3594739.3610705",
-      "tags": ["大语言模型","话题偏好建模","眼动追踪交互","个性化社交辅助工具"],
+      "tags": ["LLM","话题偏好建模","眼动追踪交互","个性化社交辅助工具"],
       "sections": [
         {
           "type": "heading",
@@ -278,7 +278,7 @@
       "abstract": "基于个人记忆记录的 GPT 辅助通讯（AAC）工具，基于NLP 关键词提取与向量匹配，记忆数据库中进行模糊匹配，生成个性化的社交表达建议，提升老年人的社交参与感与心理福祉。",
       "image": "/images/research/paper-6/teaser.png",
       "link": "https://arxiv.org/abs/2510.19017",
-      "tags": ["大语言模型","语义匹配与词嵌入","动态记忆循环","个性化社交辅助工具"],
+      "tags": ["LLM","语义匹配与词嵌入","动态记忆循环","个性化社交辅助工具"],
       "sections": [
         {
           "type": "heading",

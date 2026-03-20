@@ -49,7 +49,7 @@ function Sidebar() {
         {profile.email && (
           <a href={`mailto:${profile.email}`} className={styles.contactItem}>
             <span className={styles.contactIcon}>✉️</span>
-            <span>{profile.email}</span>
+            <span className={styles.contactText}>{profile.email}</span>
           </a>
         )}
         {profile.github && (
@@ -59,23 +59,25 @@ function Sidebar() {
             rel="noopener noreferrer"
             className={styles.contactItem}
           >
-            <span className={styles.contactIcon}>GitHub</span>
+            <span className={styles.contactIcon}>💻</span>
+            <span className={styles.contactText}>GitHub</span>
           </a>
         )}
-        {profile.linkedin && (
+        {profile.googleScholar && (
           <a
-            href={profile.linkedin}
+            href={profile.googleScholar}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.contactItem}
           >
-            <span className={styles.contactIcon}>LinkedIn</span>
+            <span className={styles.contactIcon}>📚</span>
+            <span className={styles.contactText}>Scholar</span>
           </a>
         )}
         {profile.location && (
           <div className={styles.contactItem}>
             <span className={styles.contactIcon}>📍</span>
-            <span>{profile.location}</span>
+            <span className={styles.contactText}>{profile.location}</span>
           </div>
         )}
       </div>

@@ -7,7 +7,7 @@ function Blog() {
     <div className={styles.blog}>
       <h1 className={styles.pageTitle}>Blog</h1>
       <p className={styles.pageDescription}>
-        记录学习笔记、技术分享和个人思考
+        记录学习笔记、技术分享和个人思考（建设中）
       </p>
       <div className={styles.postList}>
         {blog.posts.map((post) => (

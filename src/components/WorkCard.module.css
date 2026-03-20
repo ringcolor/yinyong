@@ -56,7 +56,23 @@
   font-size: 0.9rem;
   color: var(--text-secondary);
   line-height: 1.5;
-  margin: 0;
+  margin: 0 0 0.5rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-full);
+  color: var(--text-muted);
 }
 
 /* Gallery 专用样式（原有样式保留）*/

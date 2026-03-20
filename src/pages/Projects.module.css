@@ -13,13 +13,28 @@
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: var(--spacing-lg);
+  width: 100%;
 }
 
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
+:global(.masonry-sizer) {
+  width: 100%;
+}
+
+:global(.masonry-gutter) {
+  width: var(--spacing-lg);
+}
+
+:global(.masonry-item) {
+  width: 100%;
+  margin-bottom: var(--spacing-lg);
+}
+
+@media (min-width: 700px) {
+  :global(.masonry-sizer) {
+    width: calc(50% - 12px);
+  }
+
+  :global(.masonry-item) {
+    width: calc(50% - 12px);
   }
 }

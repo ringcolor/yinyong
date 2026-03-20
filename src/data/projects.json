@@ -2,9 +2,9 @@
   "projects": [
     {
       "id": "project-1",
-      "name": "智能问答系统",
-      "image": "/images/projects/project-1/cover.jpg",
-      "summary": "基于大语言模型的企业级智能问答系统，支持多轮对话和知识库检索。",
+      "name": "基于大模型的社交辅助沟通工具",
+      "image": "/images/projects/project-1/cover.png",
+      "summary": "基于大语言模型的企业级智能问答系统，支持多轮对话和知识库检索。于大语言模型的企业级智能问答系统，支持多轮对话和知识库检索。于大语言模型的企业级智能问答系统，支持多轮对话和知识库检索。于大语言模型的企业级智能问答系统，支持多轮对话和知识库检索。",
       "details": "该项目是一个面向企业的智能问答系统，采用RAG（检索增强生成）技术，结合大语言模型和企业知识库，实现精准的问题回答。系统支持多轮对话、上下文理解、以及多种文档格式的知识库导入。主要技术栈包括：LangChain、Milvus向量数据库、FastAPI后端、React前端。",
       "tech": ["Python", "LangChain", "Milvus", "FastAPI", "React", "GPT-4"],
       "link": "https://github.com/zhangsan/qa-system",
@@ -12,8 +12,8 @@
     },
     {
       "id": "project-2",
-      "name": "医学影像诊断AI助手",
-      "image": "/images/projects/project-2/cover.jpg",
+      "name": "适老化AI虚拟人对话产品",
+      "image": "/images/projects/project-2/cover.png",
       "summary": "基于深度学习的医学影像分析系统，辅助医生进行疾病诊断。",
       "details": "开发了一个基于深度学习的医学影像分析系统，能够自动识别CT和X光图像中的异常区域。系统采用U-Net和Transformer相结合的架构，实现了病变区域的精确分割和分类。在公开数据集上达到了95%以上的准确率。",
       "tech": ["PyTorch", "U-Net", "Transformer", "OpenCV", "DICOM"],
@@ -29,6 +29,50 @@
       "tech": ["TensorFlow", "Redis", "Kafka", "Spark", "Elasticsearch"],
       "link": "https://github.com/zhangsan/recommendation-engine",
       "period": "2023.03 - 2023.08"
+    },
+    {
+      "id": "project-4",
+      "name": "示例项目四（建设中）",
+      "image": "/images/projects/project-4/cover.jpg",
+      "summary": "项目简介占位文本，请根据实际情况修改。",
+      "details": "项目详情占位文本，请根据实际情况修改详细描述内容。",
+      "tech": ["Tech1", "Tech2", "Tech3"],
+      "link": "",
+      "period": "2024.01 - 2024.06",
+      "building": true
+    },
+    {
+      "id": "project-5",
+      "name": "示例项目五（建设中）",
+      "image": "/images/projects/project-5/cover.jpg",
+      "summary": "项目简介占位文本，请根据实际情况修改。",
+      "details": "项目详情占位文本，请根据实际情况修改详细描述内容。",
+      "tech": ["Tech1", "Tech2", "Tech3"],
+      "link": "",
+      "period": "2023.06 - 2023.12",
+      "building": true
+    },
+    {
+      "id": "project-6",
+      "name": "示例项目六（建设中）",
+      "image": "/images/projects/project-6/cover.jpg",
+      "summary": "项目简介占位文本，请根据实际情况修改。",
+      "details": "项目详情占位文本，请根据实际情况修改详细描述内容。",
+      "tech": ["Tech1", "Tech2", "Tech3"],
+      "link": "",
+      "period": "2023.01 - 2023.05",
+      "building": true
+    },
+    {
+      "id": "project-7",
+      "name": "示例项目七（建设中）",
+      "image": "/images/projects/project-7/cover.jpg",
+      "summary": "项目简介占位文本，请根据实际情况修改。",
+      "details": "项目详情占位文本，请根据实际情况修改详细描述内容。",
+      "tech": ["Tech1", "Tech2", "Tech3"],
+      "link": "",
+      "period": "2022.06 - 2022.12",
+      "building": true
     }
   ]
 }
