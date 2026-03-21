@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { getAssetUrl } from '../utils/assets'
 import styles from './ProjectCard.module.css'
 
-function ProjectCard({ project, showDetails = false }) {
+function ProjectCard({ project }) {
   const content = (
     <div className={styles.card}>
       {project.image && (
@@ -30,16 +30,9 @@ function ProjectCard({ project, showDetails = false }) {
             )}
           </div>
         )}
-        {showDetails && project.details && (
-          <p className={styles.details}>{project.details}</p>
-        )}
       </div>
     </div>
   )
-
-  if (showDetails) {
-    return content
-  }
 
   return <Link to={`/projects/${project.id}`} className={styles.link}>{content}</Link>
 }

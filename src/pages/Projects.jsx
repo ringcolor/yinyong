@@ -26,7 +26,7 @@ function Projects() {
     <div className={styles.projects}>
       <h1 className={styles.pageTitle}>项目经历</h1>
       <p className={styles.pageDescription}>
-        以下是我参与的主要项目，涵盖人工智能、机器学习和软件开发等领域。（部分内容建设中）
+        以下是我参与的主要项目，聚焦于人AI协作、智能交互产品、人工智能应用等领域。（部分内容建设中）
       </p>
       <div ref={gridRef} className={styles.grid}>
         <div className="masonry-sizer"></div>

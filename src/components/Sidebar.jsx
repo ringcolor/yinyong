@@ -9,7 +9,7 @@ function Sidebar() {
     { path: '/cv', label: 'CV' },
     { path: '/research', label: 'Research' },
     { path: '/projects', label: 'Project' },
-    { path: '/blog', label: 'Blog' },
+    // { path: '/blog', label: 'Blog' }, // TODO: 待维护后恢复
     // { path: '/gallery', label: 'Gallery' }, // TODO: 待维护后恢复
   ]
 
@@ -71,7 +71,7 @@ function Sidebar() {
             className={styles.contactItem}
           >
             <span className={styles.contactIcon}>📚</span>
-            <span className={styles.contactText}>Scholar</span>
+            <span className={styles.contactText}>Google Scholar</span>
           </a>
         )}
         {profile.location && (

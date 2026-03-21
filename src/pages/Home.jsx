@@ -3,7 +3,7 @@ import WorkCard from '../components/WorkCard'
 import profile from '../data/profile.json'
 import projects from '../data/projects.json'
 import research from '../data/research.json'
-import blog from '../data/blog.json'
+// import blog from '../data/blog.json'
 import news from '../data/news.json'
 import styles from './Home.module.css'
 
@@ -13,7 +13,7 @@ function Home() {
   const recentPaper = research.papers.slice(0, 1).map(r => ({ ...r, type: 'research', name: r.title }))
   const recentWorks = [...recentProject, ...recentPaper]
 
-  const latestPosts = blog.posts.slice(0, 2)
+  // const latestPosts = blog.posts.slice(0, 2)
   const latestNews = news.news.slice(0, 2)
 
   return (
@@ -57,8 +57,8 @@ function Home() {
         </div>
       </section>
 
-      {/* Latest Blog Posts */}
-      <section className={styles.section}>
+      {/* Latest Blog Posts - TODO: 待维护后恢复 */}
+      {/* <section className={styles.section}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>Latest Blog</h2>
           <Link to="/blog" className={styles.viewAll}>View All →</Link>
@@ -85,7 +85,7 @@ function Home() {
             </a>
           ))}
         </div>
-      </section>
+      </section> */}
     </div>
   )
 }

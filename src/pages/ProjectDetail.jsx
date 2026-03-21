@@ -47,7 +47,7 @@ function ProjectDetail() {
 
         <h1 className={styles.title}>{project.name}</h1>
         <div className={styles.titleRow}>
-          <p className={styles.period}>{project.period}</p>
+          <p className={styles.subtitle}>{project.period}</p>
           {project.link && (
             <a
               href={project.link}
@@ -60,23 +60,19 @@ function ProjectDetail() {
           )}
         </div>
 
-        {project.image && (
-          <div className={styles.imageWrapper}>
-            <ImagePreview src={getAssetUrl(project.image)} alt={project.name}>
-              <img src={getAssetUrl(project.image)} alt={project.name} className={styles.image} />
-            </ImagePreview>
-          </div>
-        )}
-
         <div className={styles.content}>
-          {project.summary && <p className={styles.summary}>{project.summary}</p>}
+          <div className={styles.meta}>
+            {project.team && (
+              <p className={styles.metaInfo}>{project.team}</p>
+            )}
+          </div>
 
           {project.tech && project.tech.length > 0 && (
-            <div className={styles.techRow}>
-              <span className={styles.techLabel}>技术栈</span>
-              <div className={styles.techList}>
+            <div className={styles.tagsRow}>
+              <span className={styles.tagsLabel}>技术栈</span>
+              <div className={styles.tags}>
                 {project.tech.map((tech, index) => (
-                  <span key={index} className={styles.tech}>
+                  <span key={index} className={styles.tag}>
                     {tech}
                   </span>
                 ))}
@@ -122,6 +118,22 @@ function ProjectDetail() {
                         <source src={getAssetUrl(section.src)} type="video/mp4" />
                         您的浏览器不支持视频播放
                       </video>
+                      {section.caption && (
+                        <p className={styles.imageCaption}>{section.caption}</p>
+                      )}
+                    </div>
+                  )}
+                  {section.type === 'youtube' && (
+                    <div className={styles.articleVideo}>
+                      <div className={styles.youtubeWrapper}>
+                        <iframe
+                          src={`https://www.youtube.com/embed/${section.videoId}`}
+                          title="YouTube video player"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
                       {section.caption && (
                         <p className={styles.imageCaption}>{section.caption}</p>
                       )}
