@@ -18,6 +18,7 @@ function ProjectCard({ project }) {
           )}
         </div>
         <p className={styles.summary}>{project.summary}</p>
+        {/* TODO: 内容准备好后恢复技术栈展示
         {project.tech && project.tech.length > 0 && (
           <div className={styles.tech}>
             {project.tech.slice(0, 4).map((tech, index) => (
@@ -30,6 +31,7 @@ function ProjectCard({ project }) {
             )}
           </div>
         )}
+        */}
       </div>
     </div>
   )

@@ -72,38 +72,36 @@ function CV() {
       {/* AI项目经历 */}
       {experiences.experiences && experiences.experiences.length > 0 && (
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>AI项目经历（建设中）</h2>
+          <h2 className={styles.sectionTitle}>AI项目经历</h2>
           <div className={styles.awardList}>
-            {experiences.experiences.map((exp) => {
+            {experiences.experiences.map((exp) => (
+              // TODO: 内容准备好后恢复跳转功能
               // 有论文ID
-              if (exp.paperId) {
-                return (
-                  <Link key={exp.id} to={`/research/${exp.paperId}`} className={styles.awardItem}>
-                    <span className={styles.awardTitle}>{exp.title}</span>
-                    <span className={styles.awardLevel}>{exp.role}</span>
-                    <span className={styles.awardDate}>{exp.date}</span>
-                  </Link>
-                )
-              }
+              // if (exp.paperId) {
+              //   return (
+              //     <Link key={exp.id} to={`/research/${exp.paperId}`} className={styles.awardItem}>
+              //       <span className={styles.awardTitle}>{exp.title}</span>
+              //       <span className={styles.awardLevel}>{exp.role}</span>
+              //       <span className={styles.awardDate}>{exp.date}</span>
+              //     </Link>
+              //   )
+              // }
               // 有项目ID
-              if (exp.projectId) {
-                return (
-                  <Link key={exp.id} to={`/projects/${exp.projectId}`} className={styles.awardItem}>
-                    <span className={styles.awardTitle}>{exp.title}</span>
-                    <span className={styles.awardLevel}>{exp.role}</span>
-                    <span className={styles.awardDate}>{exp.date}</span>
-                  </Link>
-                )
-              }
-              // 无链接
-              return (
-                <div key={exp.id} className={styles.awardItem}>
-                  <span className={styles.awardTitle}>{exp.title}</span>
-                  <span className={styles.awardLevel}>{exp.role}</span>
-                  <span className={styles.awardDate}>{exp.date}</span>
-                </div>
-              )
-            })}
+              // if (exp.projectId) {
+              //   return (
+              //     <Link key={exp.id} to={`/projects/${exp.projectId}`} className={styles.awardItem}>
+              //       <span className={styles.awardTitle}>{exp.title}</span>
+              //       <span className={styles.awardLevel}>{exp.role}</span>
+              //       <span className={styles.awardDate}>{exp.date}</span>
+              //     </Link>
+              //   )
+              // }
+              <div key={exp.id} className={styles.awardItem}>
+                <span className={styles.awardTitle}>{exp.title}</span>
+                <span className={styles.awardLevel}>{exp.role}</span>
+                <span className={styles.awardDate}>{exp.date}</span>
+              </div>
+            ))}
           </div>
         </section>
       )}
@@ -113,42 +111,40 @@ function CV() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>获奖&荣誉</h2>
           <div className={styles.awardList}>
-            {awards.awards.map((award) => {
+            {awards.awards.map((award) => (
+              // TODO: 内容准备好后恢复跳转功能
               // 有外部链接
-              if (award.link) {
-                return (
-                  <a
-                    key={award.id}
-                    href={award.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.awardItem}
-                  >
-                    <span className={styles.awardTitle}>{award.title}</span>
-                    <span className={styles.awardLevel}>{award.level}</span>
-                    <span className={styles.awardDate}>{award.date}</span>
-                  </a>
-                )
-              }
+              // if (award.link) {
+              //   return (
+              //     <a
+              //       key={award.id}
+              //       href={award.link}
+              //       target="_blank"
+              //       rel="noopener noreferrer"
+              //       className={styles.awardItem}
+              //     >
+              //       <span className={styles.awardTitle}>{award.title}</span>
+              //       <span className={styles.awardLevel}>{award.level}</span>
+              //       <span className={styles.awardDate}>{award.date}</span>
+              //     </a>
+              //   )
+              // }
               // 有项目ID
-              if (award.projectId) {
-                return (
-                  <Link key={award.id} to={`/projects/${award.projectId}`} className={styles.awardItem}>
-                    <span className={styles.awardTitle}>{award.title}</span>
-                    <span className={styles.awardLevel}>{award.level}</span>
-                    <span className={styles.awardDate}>{award.date}</span>
-                  </Link>
-                )
-              }
-              // 无链接
-              return (
-                <div key={award.id} className={styles.awardItem}>
-                  <span className={styles.awardTitle}>{award.title}</span>
-                  <span className={styles.awardLevel}>{award.level}</span>
-                  <span className={styles.awardDate}>{award.date}</span>
-                </div>
-              )
-            })}
+              // if (award.projectId) {
+              //   return (
+              //     <Link key={award.id} to={`/projects/${award.projectId}`} className={styles.awardItem}>
+              //       <span className={styles.awardTitle}>{award.title}</span>
+              //       <span className={styles.awardLevel}>{award.level}</span>
+              //       <span className={styles.awardDate}>{award.date}</span>
+              //     </Link>
+              //   )
+              // }
+              <div key={award.id} className={styles.awardItem}>
+                <span className={styles.awardTitle}>{award.title}</span>
+                <span className={styles.awardLevel}>{award.level}</span>
+                <span className={styles.awardDate}>{award.date}</span>
+              </div>
+            ))}
           </div>
         </section>
       )}
