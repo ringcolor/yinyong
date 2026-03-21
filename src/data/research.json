@@ -170,7 +170,7 @@
       "authors": ["Zhuyu Teng", "*Pei Chen", "Yiwen Ren", "Zhaoqu Jiang", "Hongbo Zhang", "Zhuoyi Cheng", "Xuanhui Liu", "Weitao You", "Lingyun Sun"],
       "journal": "International Journal of Human-Computer Studies (IJHCS) · SCI Q1",
       "date": "审稿中",
-      "abstract": "本文提出了一种新的自监督学习方法用于推荐系统，通过对比学习预训练用户和物品表示，显著提升了推荐效果。该方法能够有效缓解冷启动问题，在多个数据集上取得了SOTA效果。",
+      "abstract": "本研究聚焦于 混合现实 (MR) 环境下 3D 设计 的智能辅助，通过引入 Perceive-Trigger-Present (PTP) 理论框架，系统地回答了 AI 在协同设计中“感知什么”、“何时干预”以及“如何呈现”的核心问题。",
       "image": "/images/research/paper-3/teaser.png",
       "link": "",
       "tags": ["人AI协同", "3D设计", "情境意识", "混合现实MR","多模态大模型"],
@@ -312,7 +312,7 @@
       "journal": "ACM Conference on Computer Supported Cooperative Work and Social Computing（CSCW）· CCFA",
       "date": "2025",
       "abstract": "针对普通用户缺乏3D空间表达技能的难题，DuoMR系统支持设计师与用户在共享的MR空间内，通过直观的手势指令（如旋转、拉伸）快速创建3D模型，并能模拟产品动态特征与真实交互场景 。",
-      "image": "/images/research/paper-7/teaser.png",
+      "image": "/images/research/paper-7/teaser.jpg",
       "link": "https://dl.acm.org/doi/abs/10.1145/3710979",
       "tags": ["协同设计","混合现实MR","3D建模与表达","用户参与式设计"],
       "sections": [
