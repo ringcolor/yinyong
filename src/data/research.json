@@ -277,7 +277,7 @@
       "date": "2025",
       "abstract": "基于个人记忆记录的 GPT 辅助通讯（AAC）工具，基于NLP 关键词提取与向量匹配，记忆数据库中进行模糊匹配，生成个性化的社交表达建议，提升老年人的社交参与感与心理福祉。",
       "image": "/images/research/paper-6/teaser.png",
-      "link": "https://arxiv.org/abs/2510.19017",
+      "link": "https://ieeexplore.ieee.org/abstract/document/11342589",
       "tags": ["LLM","语义匹配与词嵌入","动态记忆循环","个性化社交辅助工具"],
       "sections": [
         {
@@ -322,7 +322,7 @@
         },
         {
           "type": "youtube",
-          "videoId": "待填写",
+          "videoId": "i1t0aixbgLQ",
           "caption": "系统介绍&演示"
         },
         {
