@@ -318,12 +318,32 @@
 
 .imagesGrid img {
   width: 100%;
-  height: auto;
+  height: 300px;
+  object-fit: cover;
   border-radius: var(--radius-lg);
 }
 
 .imagesItem {
   flex: 1;
+}
+
+.imagesColumnsGrid {
+  display: flex;
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+
+.imagesColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.imagesColumnItem img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
 }
 
 /* 响应式 - 小屏幕隐藏目录 */
@@ -427,4 +447,12 @@
   background-color: var(--bg-tertiary);
   padding: 2px 6px;
   border-radius: var(--radius-sm);
+}
+
+.markdownContent img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  margin: var(--spacing-md) 0;
+  display: block;
 }

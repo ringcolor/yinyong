@@ -256,6 +256,123 @@
           "content": "\n先思考两个python脚本之间如何socket通信\n\n比较需要注意的是，在不同语言的程序之间进行socket通信，**编码需要同时设置为UTF-8或者其他**，否者将会出现乱码\n\n# 1.  Socket简介\n\n## 1.1 TCP/UDP和Socket的关系\n\nTCP/UDP是真正的通信方式，Socket是对他们的封装。\n\n> TCP，传输控制协议（TCP，Transmission Control Protocol）是一种面向连接的、可靠的、基于字节流的传输层通信协议，由IETF的RFC 793 定义。\n> TCP和UDP协议是TCP/IP协议的核心。 TCP 传输协议：TCP 协议是一TCP (Transmission Control Protocol)和UDP(User Datagram Protocol)协议属于传输层协议。\n> https://zhuanlan.zhihu.com/p/24860273\n\n### 1.TCP的面向连接和UDP的面向无连接\nTCP，类似打电话，需要先建立连接，确保对方在线，才能进行通信。\nUDP，类似写信，知道对方地址就行，发送，不需要管收到与否。\n- 使用socket的区别：\n\t- 发送信息：TCP必须连接成功后才能发送(电话接通后你说话才有意义)，UDP直接发送就好了(寄信知道地址就行了)\n\t- 接收信息：TCP必须绑定IP和端口号监听连入，然后建立连接(接电话)。UDP只要绑定了IP和端口号就行(房子在就能收到信)\n\n### 2.TCP的面向流连接和UDP的面向报文\n- 流：数据源源不断地到达；\n- 报文：数据一次性到达的。\n\t结合 `面向连接、面向无连接`理解\n- 与socket的关系\n\t- Socket构建的时候都需要指定传输方式。主要就是这两种，流传输格式（TCP）和数据报格式（UDP）。\n\t- 传输限制。单次传输限制都存在，但流的方式可以将大块数据分割，进行多次传输，然后再将内容拼接起来，就好像数据没有被分割一样，表现就是**使用流传输(TCP)的时候我们一般不需要考虑传输限制**。而数据报的话就需要考虑单次传输大小限制了，这个根据不同的Socket实现也有所不同。\n\t- 传输**顺序**。TCP面向连接和流传输的方式可以保证数据到达的先后顺序。而UDP面向无连接和报文传输的方式无法保证数据到达的先后顺序，甚至到不到达都无法保证。\n- 常用的其实就是基于TCP的Socket，也就是在构建Socket的时候指定使用流传输方式。而UDP除了需要注意传输限制，使用起来要简单很多。下面我们也主要分析TCP这种方式。\n\n## 1.2 基于TCP的Socket的使用流程\n1. 服务端启动一个监听用的Socket，可以称为`listener`(listener=10086)\n2. `listener`不断的监听有没有客户端来连接自己，等待连接，对应`accept()`方法(10086等着客户拨打这个号码)\n3. 一旦有可用连接连入(`client`)，`listener.accept()`就会返回一个Socket实例，可以称为`clientExecutor`，这个就类似和你交流的客服(你拨打了10086，10086做出反应，给你分配了一个客服)\n4. 客户端`client`和服务端的`clientExecutor`可以进行通信了(你和客服可以交流了)，这里需要注意的问题是，两边的编码要一致。\n\n## 1.3 通信分析\n1.  可以认为调用完成`send()`，数据已经发送到对方的缓存中了。\n2.  调用`receive()`从己方缓冲读数据。\n3.  关于**同时双向通信**\n    1.  如果使用的是**TCP**的方式，因为TCP是全双工的，可以同时双向传输。\n    2.  如果使用的是**UDP**的方式，因为UDP是无连接的，甚至可以同时一对多，多对多传输，所以也就没有相关的限制。\n\n# 2.  代码实例\n\n需求分析\n-   客户端在连接成功的时候，会收到服务端发送的欢迎消息。(**服务端发消息给客户端**)\n-   然后客户端可以给服务端发送消息。(**客户端发消息给服务端**)\n-   **服务端对来自不同客户端的消息做出反应**(这里就直接将消息和消息来源打印出来，实际也可以根据这些信息做特殊处理)。\n\n## 1.  Python实例\n\n服务端\n```python\nimport socket\nimport threading\nimport time\n\n# 当新的客户端连入时会调用这个方法\ndef on_new_connection(client_executor, addr):\n    print('Accept new connection from %s:%s...' % addr)\n\n    # 发送一个欢迎信息\n    client_executor.send(bytes('Welcome'.encode('utf-8')))\n\n    # 进入死循环，读取客户端发送的信息。\n    while True:\n        msg = client_executor.recv(1024).decode('utf-8')\n        if(msg == 'exit'):\n            print('%s:%s request close' % addr)\n            break\n        print('%s:%s: %s' % (addr[0], addr[1], msg))\n    client_executor.close()\n    print('Connection from %s:%s closed.' % addr)\n\n# 构建Socket实例、设置端口号和监听队列大小\nlistener = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\nlistener.bind(('192.168.5.103', 9999))\nlistener.listen(5)\nprint('Waiting for connect...')\n\n# 进入死循环，等待新的客户端连入。一旦有客户端连入，就分配一个线程去做专门处理。然后自己继续等待。\nwhile True:\n    client_executor, addr = listener.accept()\n    t = threading.Thread(target=on_new_connection, args=(client_executor, addr))\n    t.start()\n```\n\n客户端\n```python\nimport socket\n\n# 构建一个实例，去连接服务端的监听端口。\nclient = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\nclient.connect(('192.168.5.103', 9999))\n\n# 接收欢迎信息\nmsg=client.recv(1024)\nprint('New message from server: %s' % msg.decode('utf-8'))\n\n# 不断获取输入，并发送给服务端。\ndata=\"\"\nwhile(data!='exit'):\n    data=input()\n    client.send(data.encode('utf-8'))\nclient.close()\n```\n\n## 2.  C#实例\n服务端\n```c#\nusing System;\nusing System.Net;\nusing System.Net.Sockets;\nusing System.Threading;\nusing System.Threading.Tasks;\nusing System.Text;\n\nnamespace ServerSocket\n{\n    class Program\n    {\n        static void Main(string[] args)\n        {\n            // 构建Socket实例、设置端口号和监听队列大小\n            var listener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);\n            string host = \"192.168.5.103\";\n            int port = 9999;\n            listener.Bind(new IPEndPoint(IPAddress.Parse(host), port));\n            listener.Listen(5);\n            Console.WriteLine(\"Waiting for connect...\");\n\n            // 进入死循环，等待新的客户端连入。一旦有客户端连入，就分配一个Task去做专门处理。然后自己继续等待。\n            while(true){\n                var clientExecutor=listener.Accept();\n                Task.Factory.StartNew(()=>{\n                    // 获取客户端信息，C#对(ip+端口号)进行了封装。\n                    var remote=clientExecutor.RemoteEndPoint;\n                    Console.WriteLine(\"Accept new connection from {0}\",remote);\n\n                    // 发送一个欢迎消息\n                    clientExecutor.Send(Encoding.UTF32.GetBytes(\"Welcome\"));\n\n                    // 进入死循环，读取客户端发送的信息\n                    var bytes=new byte[1024];\n                    while(true){\n                        var count=clientExecutor.Receive(bytes);\n                        var msg=Encoding.UTF32.GetString(bytes,0,count);\n                        if(msg==\"exit\"){\n                            System.Console.WriteLine(\"{0} request close\",remote);\n                            break;\n                        }\n                        Console.WriteLine(\"{0}: {1}\",remote,msg);\n                        Array.Clear(bytes,0,count);\n                    }\n                    clientExecutor.Close();\n                    System.Console.WriteLine(\"{0} closed\",remote);\n                });\n            }\n        }\n    }\n}\n```\n\n客户端\n```c#\nusing System;\nusing System.Threading;\nusing System.Text;\nusing System.Net;\nusing System.Net.Sockets;\n\nnamespace ClientSocket\n{\n    class Program\n    {\n        static void Main(string[] args)\n        {\n            var host=\"192.168.5.103\";\n            var port=9999;\n\n            // 构建一个Socket实例，并连接指定的服务端。这里需要使用IPEndPoint类(ip和端口号的封装)\n            Socket client=new Socket(AddressFamily.InterNetwork,SocketType.Stream,ProtocolType.Tcp);\n\n            try\n            {\n                client.Connect(new IPEndPoint(IPAddress.Parse(host),port));\n            }\n            catch (Exception e)\n            {\n                Console.WriteLine(e.Message);\n                return;\n            }\n\n            // 接受欢迎信息\n            var bytes=new byte[1024];\n            var count=client.Receive(bytes);\n            Console.WriteLine(\"New message from server: {0}\",Encoding.UTF32.GetString(bytes,0,count));\n\n            // 不断的获取输入，发送给服务端\n            var input=\"\";\n            while(input!=\"exit\"){\n                input=Console.ReadLine();\n                client.Send(Encoding.UTF32.GetBytes(input));\n            }\n\n            client.Close();\n        }\n    }\n}\n```\n\n## 3.  双向同时通信（Python实例）\n\n因为不能让同一个终端即接受输入又不断输出，所以将之前的Python代码稍作改动，做以下规定：\n\n1.  终端只接受输入，发送消息。\n2.  收到消息后写到文件里。\n\n服务端\n```python\nimport socket\nimport threading\nimport time\n\n# 当新的客户端连入时会调用这个方法\ndef on_new_connection(client_executor, addr):\n    print('Accept new connection from %s:%s...' % addr)\n\n    # 启动一个线程进入死循环，不断接收消息。\n    recy_thread=threading.Thread(target=message_receiver, args=(client_executor,addr))\n    recy_thread.start()\n\n    # 不断获取输入，并发送给服务端。\n    data=\"\"\n    while(data!='exit'):\n        data=input()\n        client_executor.send(data.encode('utf-8'))\n    client_executor.close()\n    print('Connection from %s:%s closed.' % addr)\n\n# 接收数据的线程需要处理的逻辑\ndef message_receiver(client_executor,addr):\n    while True:\n        with open('server.txt','a+') as f:\n            msg = client_executor.recv(1024).decode('utf-8')\n            f.writelines('%s:%s: %s \\r\\n' % (addr[0], addr[1], msg))\n\n# 构建Socket实例、设置端口号和监听队列大小\nlistener = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\nlistener.bind(('192.168.5.103', 9999))\nlistener.listen(5)\nprint('Waiting for connect...')\n\n# 进入死循环，等待新的客户端连入。一旦有客户端连入，就分配一个线程去做专门处理。然后自己继续等待。\nwhile True:\n    client_executor, addr = listener.accept()\n    t = threading.Thread(target=on_new_connection, args=(client_executor, addr))\n    t.start()\n```\n\n客户端\n```python\nimport socket\nimport threading\n\n# 接收数据的线程逻辑\ndef message_receiver(client):\n    while True:\n        with open('client.txt','a+') as f:\n            msg = client.recv(1024).decode('utf-8')\n            f.writelines('%s: %s \\r\\n' % ('来自服务端的消息', msg))\n\n# 构建一个实例，去连接服务端的监听端口。\nclient = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\nclient.connect(('192.168.5.103', 9999))\n\n# 启动线程专门用于接收数据\nrecy_thread=threading.Thread(target=message_receiver, args=(client,))\nrecy_thread.start()\n\n# 不断获取输入，并发送给服务端。\ndata=\"\"\nwhile(data!='exit'):\n    data=input()\n    client.send(data.encode('utf-8'))\nclient.close()\n```"
         }
       ]
+    },
+    {
+      "id": "post-4",
+      "title": "Claude Code实践技巧：以Vibe Coding个人网站为例",
+      "date": "2026.03.16",
+      "summary": "分享使用Claude Code开发个人网站的实践经验，包括协作planning、数据分离设计、Figma MCP集成等技巧。",
+      "tags": ["Claude Code", "Vibe Coding", "AI编程", "个人网站"],
+      "link": "",
+      "building": false,
+      "sections": [
+        {
+          "type": "markdown",
+          "content": "> 案例选取：个人网站（设计+ 开发 + 部署）\n>\n> AI时代，人人都需要讲好自己的研究故事"
+        },
+        {
+          "type": "heading",
+          "content": "感受"
+        },
+        {
+          "type": "markdown",
+          "content": "**1 本身开箱即用的体验**\n\n本身开箱即用的使用效果就很好，基本不需要prompt技巧了。因为以前依靠人编写明确的planning，现在claude code会先协作讨论，规划一份planning确认。\n\n**2 善用资源MCP + skills**\n\n全流程几乎0人工，打通设计-开发AI工作流。人参与创作内容本身少（内容创作者），参与内容审核多（内容审核编辑）。\n\nClaude Code支持Figma MCP，读取设计结构和规范，配置UI设计语言的skills可以节约口舌（不需要解释xx风格特征）。"
+        },
+        {
+          "type": "heading",
+          "content": "实践"
+        },
+        {
+          "type": "markdown",
+          "content": "### 路径一：原生Claude Code\n\n> 通用的设计语言，可选黑白简洁风格等\n\n#### 协作planning制定"
+        },
+        {
+          "type": "subheading",
+          "content": "要求数据+渲染分离的文件格式"
+        },
+        {
+          "type": "images",
+          "items": [
+            {
+              "src": "/images/blog/post-4/planning_1.png",
+              "caption": ""
+            },
+            {
+              "src": "/images/blog/post-4/planning_2.png",
+              "caption": ""
+            }
+          ]
+        },
+        {
+          "type": "markdown",
+          "content": "#### step2: 交付验证"
+        },
+        {
+          "type": "imagesColumns",
+          "columns": [
+            [
+              {
+                "src": "/images/blog/post-4/planning_3.png",
+                "caption": ""
+              }
+            ],
+            [
+              {
+                "src": "/images/blog/post-4/planning_4.png",
+                "caption": ""
+              },
+              {
+                "src": "/images/blog/post-4/planning_5.png",
+                "caption": ""
+              },
+              {
+                "src": "/images/blog/post-4/planning_6.png",
+                "caption": ""
+              }
+            ],
+            [
+              {
+                "src": "/images/blog/post-4/planning_7.png",
+                "caption": ""
+              },
+              {
+                "src": "/images/blog/post-4/planning_8.png",
+                "caption": ""
+              }
+            ]
+          ]
+        },
+        {
+          "type": "markdown",
+          "content": "##### *善用skills\n\nUI UX Pro Max: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill"
+        },
+        {
+          "type": "image",
+          "src": "/images/blog/post-4/skill_10.png",
+          "caption": ""
+        },
+        {
+          "type": "markdown",
+          "content": "### 路径二：Stitch + Figma MCP + Claude Code\n\n> 更遵循设计规范明确，需要高保真还原"
+        },
+        {
+          "type": "image",
+          "src": "/images/blog/post-4/pipeline_11.jpg",
+          "caption": ""
+        },
+        {
+          "type": "markdown",
+          "content": "#### 前期设计（传统的模式）\n\nStitch: https://stitch.withgoogle.com/\n\n强推Stitch->Figma的工作模式：输入参考来源->对话式沟通获取整体的排版、内容构成->获取规范化的figma组件命名文件->UI细节修改\n\n##### *善用Figma MCP\n\n- Figma MCP文档: https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Figma-MCP-server\n- Claude MCP配置: https://code.claude.com/docs/en/mcp\n\n#### 复盘\n\n**总结coding过程**：\n\n1. 关键执行步骤、执行动作、结果成功/失败原因\n2. 关键输入输出：Figma MCP配置、设计结构解析结果、设计规格提取、代码文件规划\n3. 沟通使用技巧：遇到阻碍搜索替代方案、分步骤验证"
+        },
+        {
+          "type": "heading",
+          "content": "总结"
+        },
+        {
+          "type": "markdown",
+          "content": "AI时代的设计流程转变：\n\n- 旧的设计工作流：\"调研-发散-收敛\"，截止到「交付设计」；协作planning设计内容（视觉、排版、逻辑）\n- vibe coding能力逐渐强大：从「交付设计」到「执行设计」，关注设计验证；协作planning内容+执行"
+        }
+      ]
     }
   ]
 }

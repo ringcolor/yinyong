@@ -69,7 +69,7 @@ function ProjectDetail() {
 
           {project.tech && project.tech.length > 0 && (
             <div className={styles.tagsRow}>
-              <span className={styles.tagsLabel}>技术栈</span>
+              <span className={styles.tagsLabel}>关键词</span>
               <div className={styles.tags}>
                 {project.tech.map((tech, index) => (
                   <span key={index} className={styles.tag}>
@@ -129,6 +129,22 @@ function ProjectDetail() {
                         <iframe
                           src={`https://www.youtube.com/embed/${section.videoId}`}
                           title="YouTube video player"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      {section.caption && (
+                        <p className={styles.imageCaption}>{section.caption}</p>
+                      )}
+                    </div>
+                  )}
+                  {section.type === 'bilibili' && (
+                    <div className={styles.articleVideo}>
+                      <div className={styles.youtubeWrapper}>
+                        <iframe
+                          src={`https://player.bilibili.com/player.html?bvid=${section.bvid}&high_quality=1&autoplay=0`}
+                          title="Bilibili video player"
                           frameBorder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen

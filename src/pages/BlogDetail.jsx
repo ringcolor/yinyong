@@ -118,6 +118,24 @@ function BlogDetail() {
                       ))}
                     </div>
                   )}
+                  {section.type === 'imagesColumns' && section.columns && (
+                    <div className={styles.imagesColumnsGrid}>
+                      {section.columns.map((column, colIdx) => (
+                        <div key={colIdx} className={styles.imagesColumn}>
+                          {column.map((item, itemIdx) => (
+                            <div key={itemIdx} className={styles.imagesColumnItem}>
+                              <ImagePreview src={getAssetUrl(item.src)} alt={item.alt || ''}>
+                                <img src={getAssetUrl(item.src)} alt={item.alt || ''} />
+                              </ImagePreview>
+                              {item.caption && (
+                                <p className={styles.imageCaption}>{item.caption}</p>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                   {section.type === 'video' && (
                     <div className={styles.articleVideo}>
                       <video controls>
@@ -184,7 +202,14 @@ function BlogDetail() {
                   )}
                   {section.type === 'markdown' && (
                     <div className={styles.markdownContent}>
-                      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                      <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
+                        components={{
+                          img: ({ src, alt }) => (
+                            <img src={getAssetUrl(src)} alt={alt || ''} />
+                          )
+                        }}
+                      >
                         {section.content}
                       </ReactMarkdown>
                     </div>

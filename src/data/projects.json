@@ -5,7 +5,7 @@
       "name": "基于大模型的社交辅助沟通工具",
       "image": "/images/projects/project-1/teaser.png",
       "summary": "EyeSay 是一款专为中风、帕金森及渐冻症等重度失能群体设计的人格化辅助沟通工具。该方案利用 iPhone 的 ARKit 技术实现低成本的眼动追踪交互，有效降低了患者的使用门槛。通过集成 GPT-4 大语言模型，系统能结合话题偏好与社交亲密度两个核心维度，精准预测并生成符合用户性格的个性化回复。",
-      "team": "独立开发者",
+      "team": "项目成员：Yuyang Fang，Zhuyu Teng，Zhaoqu Jiang",
       "tech": ["Python", "LangChain", "Milvus", "FastAPI", "React", "GPT-4"],
       "link": "",
       "period": "2023.03 - 2023.09",
@@ -15,41 +15,38 @@
           "content": "系统视频"
         },
         {
-          "type": "youtube",
-          "videoId": "待填写",
-          "caption": "系统介绍&演示"
+          "type": "bilibili",
+          "bvid": "BV1SLQQBREtm",
+          "caption": "iPad端-系统演示"
+        },
+        {
+          "type": "bilibili",
+          "bvid": "BV1uqA3zBEut",
+          "caption": "手机端-系统演示"
         },
         {
           "type": "heading",
           "content": "项目背景"
         },
         {
-          "type": "text",
-          "content": "占位文本，请补充项目背景介绍。"
-        },
-        {
           "type": "image",
           "src": "/images/projects/project-1/bg.png",
-          "caption": "背景图片说明"
+          "caption": ""
         },
         {
           "type": "heading",
           "content": "系统设计"
         },
         {
-          "type": "text",
-          "content": "占位文本，请补充系统设计说明。"
-        },
-        {
           "type": "images",
           "items": [
             {
-              "src": "/images/projects/project-1/design-1.png",
-              "caption": "设计图1说明"
+              "src": "/images/projects/project-1/tech.png",
+              "caption": ""
             },
             {
-              "src": "/images/projects/project-1/design-2.png",
-              "caption": "设计图2说明"
+              "src": "/images/projects/project-1/user_study.png",
+              "caption": ""
             }
           ]
         },
@@ -58,13 +55,17 @@
           "content": "技术实现"
         },
         {
-          "type": "text",
-          "content": "占位文本，请补充技术实现细节。"
-        },
-        {
-          "type": "image",
-          "src": "/images/projects/project-1/tech.png",
-          "caption": "技术架构图"
+          "type": "images",
+          "items": [
+            {
+              "src": "/images/projects/project-1/pipeline1.png",
+              "caption": ""
+            },
+            {
+              "src": "/images/projects/project-1/pipeline2.png",
+              "caption": ""
+            }
+          ]
         }
       ]
     },
@@ -73,83 +74,43 @@
       "name": "适老化AI虚拟人对话产品",
       "image": "/images/projects/project-2/cover.png",
       "summary": "小数 是一款智能家居产品，形态是AI虚拟人对话音箱。它将全息投影与AI虚拟助手相结合，依赖华数集团的线下社区网络服务资源，通过日常问答帮助老年人获取咨询和服务。",
-      "team": "项目负责人 · 3人团队",
+      "team": "负责项目的产品功能设计",
       "tech": ["PyTorch", "U-Net", "Transformer", "OpenCV", "DICOM"],
-      "link": "https://github.com/zhangsan/medical-ai",
+      "link": "",
       "period": "2022.05 - 2023.12",
       "sections": [
-        {
-          "type": "heading",
-          "content": "系统视频"
-        },
-        {
-          "type": "youtube",
-          "videoId": "待填写",
-          "caption": "产品介绍&演示"
-        },
         {
           "type": "heading",
           "content": "项目背景"
         },
         {
-          "type": "text",
-          "content": "占位文本，请补充项目背景介绍。"
+          "type": "image",
+          "src": "/images/projects/project-2/bg.png",
+          "caption": ""
         },
         {
           "type": "image",
-          "src": "/images/projects/project-2/bg.png",
-          "caption": "背景图片说明"
+          "src": "/images/projects/project-2/bg2.png",
+          "caption": ""
         },
         {
           "type": "heading",
           "content": "产品设计"
         },
         {
-          "type": "text",
-          "content": "占位文本，请补充产品设计说明。"
+          "type": "image",
+          "src": "/images/projects/project-2/demo.png",
+          "caption": ""
         },
         {
-          "type": "images",
-          "items": [
-            {
-              "src": "/images/projects/project-2/product-1.png",
-              "caption": "产品图1说明"
-            },
-            {
-              "src": "/images/projects/project-2/product-2.png",
-              "caption": "产品图2说明"
-            }
-          ]
+          "type": "image",
+          "src": "/images/projects/project-2/demo_2.png",
+          "caption": ""
         },
         {
-          "type": "heading",
-          "content": "功能演示"
-        },
-        {
-          "type": "video",
-          "src": "/images/projects/project-2/demo.mp4",
-          "caption": "功能演示视频"
-        }
-      ]
-    },
-    {
-      "id": "project-3",
-      "name": "更多项目（建设中）",
-      "image": "/images/projects/project-3/cover.jpg",
-      "summary": "更多项目更新中",
-      "team": " ",
-      "tech": ["Tech1", "Tech2", "Tech3"],
-      "link": "",
-      "period": "2023.03 - 2023.08",
-      "building": true,
-      "sections": [
-        {
-          "type": "heading",
-          "content": "项目背景"
-        },
-        {
-          "type": "text",
-          "content": "占位文本，请补充内容。"
+          "type": "image",
+          "src": "/images/projects/project-2/demo_3.jpg",
+          "caption": ""
         }
       ]
     }

@@ -36,9 +36,7 @@ function ProjectCard({ project }) {
     </div>
   )
 
-  // TODO: 内容准备好后恢复跳转功能
-  // return <Link to={`/projects/${project.id}`} className={styles.link}>{content}</Link>
-  return <div className={styles.link}>{content}</div>
+  return <Link to={`/projects/${project.id}`} className={styles.link}>{content}</Link>
 }
 
 export default ProjectCard
