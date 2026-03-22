@@ -1,4 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import blog from '../data/blog.json'
 import { getAssetUrl } from '../utils/assets'
 import ImagePreview from '../components/ImagePreview'
@@ -93,7 +95,7 @@ function BlogDetail() {
                     <p className={styles.paragraph}>{section.content}</p>
                   )}
                   {section.type === 'image' && (
-                    <div className={styles.articleImage}>
+                    <div className={`${styles.articleImage} ${section.halfWidth ? styles.halfWidth : ''}`}>
                       <ImagePreview src={getAssetUrl(section.src)} alt={section.alt || ''}>
                         <img src={getAssetUrl(section.src)} alt={section.alt || ''} />
                       </ImagePreview>
@@ -127,10 +129,65 @@ function BlogDetail() {
                       )}
                     </div>
                   )}
+                  {section.type === 'youtube' && (
+                    <div className={styles.articleVideo}>
+                      <div className={styles.youtubeWrapper}>
+                        <iframe
+                          src={`https://www.youtube.com/embed/${section.videoId}`}
+                          title="YouTube video player"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      {section.caption && (
+                        <p className={styles.imageCaption}>{section.caption}</p>
+                      )}
+                    </div>
+                  )}
+                  {section.type === 'bilibili' && (
+                    <div className={styles.articleVideo}>
+                      <div className={styles.bilibiliWrapper}>
+                        <iframe
+                          src={`//player.bilibili.com/player.html?bvid=${section.bvid}`}
+                          scrolling="no"
+                          border="0"
+                          frameBorder="no"
+                          framespacing="0"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      {section.caption && (
+                        <p className={styles.imageCaption}>{section.caption}</p>
+                      )}
+                    </div>
+                  )}
+                  {section.type === 'code' && (
+                    <div className={styles.codeBlock}>
+                      {section.language && (
+                        <span className={styles.codeLanguage}>{section.language}</span>
+                      )}
+                      <pre>
+                        <code>{section.content}</code>
+                      </pre>
+                    </div>
+                  )}
                   {section.type === 'heading' && (
                     <h4 id={`section-${index}`} className={styles.articleHeading}>
                       {section.content}
                     </h4>
+                  )}
+                  {section.type === 'subheading' && (
+                    <h5 className={styles.articleSubheading}>
+                      {section.content}
+                    </h5>
+                  )}
+                  {section.type === 'markdown' && (
+                    <div className={styles.markdownContent}>
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                        {section.content}
+                      </ReactMarkdown>
+                    </div>
                   )}
                 </div>
               ))}

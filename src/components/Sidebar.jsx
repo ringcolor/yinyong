@@ -9,7 +9,7 @@ function Sidebar() {
     { path: '/cv', label: 'CV' },
     { path: '/research', label: 'Research' },
     { path: '/projects', label: 'Project' },
-    // { path: '/blog', label: 'Blog' }, // TODO: 待维护后恢复
+    { path: '/blog', label: 'Blog' },
     // { path: '/gallery', label: 'Gallery' }, // TODO: 待维护后恢复
   ]
 

@@ -96,9 +96,9 @@
 }
 
 .summary {
-  font-size: var(--text-lg);
+  font-size: var(--text-sm);
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.8;
   margin-bottom: var(--spacing-lg);
 }
 
@@ -192,11 +192,21 @@
   margin: var(--spacing-xl) 0 var(--spacing-md);
 }
 
+.articleSubheading {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: var(--spacing-lg) 0 var(--spacing-sm);
+  padding-left: var(--spacing-sm);
+  border-left: 3px solid var(--accent-primary);
+}
+
 .paragraph {
   font-size: var(--text-sm);
   color: var(--text-secondary);
   line-height: 1.8;
   margin: 0 0 var(--spacing-md);
+  white-space: pre-line;
 }
 
 .articleImage {
@@ -207,6 +217,14 @@
   width: 100%;
   height: auto;
   border-radius: var(--radius-lg);
+}
+
+.articleImage.halfWidth {
+  text-align: center;
+}
+
+.articleImage.halfWidth img {
+  width: 50%;
 }
 
 .imageCaption {
@@ -227,6 +245,69 @@
   height: auto;
   border-radius: var(--radius-lg);
   display: block;
+}
+
+.youtubeWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 比例 */
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.youtubeWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-lg);
+}
+
+.bilibiliWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 比例 */
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.bilibiliWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-lg);
+}
+
+.codeBlock {
+  margin: var(--spacing-lg) 0;
+  background-color: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.codeLanguage {
+  display: inline-block;
+  font-size: var(--text-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--bg-secondary);
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.codeBlock pre {
+  margin: 0;
+  padding: var(--spacing-md);
+  overflow-x: auto;
+}
+
+.codeBlock code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 .imagesGrid {
@@ -258,4 +339,92 @@
   .detail {
     max-width: 100%;
   }
+}
+
+/* Markdown 内容样式 */
+.markdownContent {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.markdownContent h1 {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: var(--spacing-xl) 0 var(--spacing-md);
+}
+
+.markdownContent h2 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+.markdownContent h3 {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: var(--spacing-md) 0 var(--spacing-sm);
+}
+
+.markdownContent p {
+  margin: 0 0 var(--spacing-md);
+  white-space: pre-line;
+}
+
+.markdownContent strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.markdownContent a {
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
+.markdownContent a:hover {
+  text-decoration: underline;
+}
+
+.markdownContent blockquote {
+  margin: var(--spacing-md) 0;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-left: 3px solid var(--accent-primary);
+  background-color: var(--bg-secondary);
+  color: var(--text-muted);
+}
+
+.markdownContent ul,
+.markdownContent ol {
+  margin: var(--spacing-sm) 0;
+  padding-left: var(--spacing-xl);
+}
+
+.markdownContent li {
+  margin: var(--spacing-xs) 0;
+}
+
+.markdownContent pre {
+  margin: var(--spacing-md) 0;
+  padding: var(--spacing-md);
+  background-color: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+}
+
+.markdownContent code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: var(--text-sm);
+}
+
+.markdownContent pre code {
+  color: var(--text-secondary);
+}
+
+.markdownContent p code {
+  background-color: var(--bg-tertiary);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
 }

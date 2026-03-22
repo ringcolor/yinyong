@@ -3,14 +3,21 @@ import blog from '../data/blog.json'
 import styles from './Blog.module.css'
 
 function Blog() {
+  // 按日期从近到远排序
+  const sortedPosts = [...blog.posts].sort((a, b) => {
+    const dateA = new Date(a.date.replace(/\./g, '-'))
+    const dateB = new Date(b.date.replace(/\./g, '-'))
+    return dateB - dateA
+  })
+
   return (
     <div className={styles.blog}>
       <h1 className={styles.pageTitle}>Blog</h1>
       <p className={styles.pageDescription}>
-        记录学习笔记、技术分享和个人思考（建设中）
+        记录学习笔记、技术分享和个人思考
       </p>
       <div className={styles.postList}>
-        {blog.posts.map((post) => (
+        {sortedPosts.map((post) => (
           <Link
             key={post.id}
             to={`/blog/${post.id}`}
