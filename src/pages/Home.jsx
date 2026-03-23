@@ -8,6 +8,25 @@ import news from '../data/news.json'
 import styles from './Home.module.css'
 
 function Home() {
+  // 解析文本中的markdown链接 [text](url)
+  const parseTextWithLinks = (text) => {
+    const parts = text.split(/\[([^\]]+)\]\(([^)]+)\)/g)
+    if (parts.length === 1) return text
+
+    const result = []
+    for (let i = 0; i < parts.length; i += 3) {
+      if (parts[i]) result.push(parts[i])
+      if (parts[i + 1] !== undefined) {
+        result.push(
+          <a key={i} href={parts[i + 2]} target="_blank" rel="noopener noreferrer" className={styles.link}>
+            {parts[i + 1]}
+          </a>
+        )
+      }
+    }
+    return result
+  }
+
   // 取最新的1个项目和1篇论文混合展示
   const recentProject = projects.projects.slice(0, 1).map(p => ({ ...p, type: 'project', name: p.name }))
   const recentPaper = research.papers.slice(0, 1).map(r => ({ ...r, type: 'research', name: r.title }))
@@ -23,7 +42,7 @@ function Home() {
         <p className={styles.greeting}>Hey there 👋</p>
         <h1 className={styles.name}>I'm Zhuyu Teng.</h1>
         {profile.slogan && <p className={styles.slogan}>{profile.slogan}</p>}
-        <p className={styles.bio}>{profile.bio || profile.summary}</p>
+        <p className={styles.bio}>{parseTextWithLinks(profile.bio || profile.summary)}</p>
       </section>
 
       {/* News */}
