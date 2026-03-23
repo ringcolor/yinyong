@@ -11,7 +11,7 @@ function Home() {
   // 取最新的1个项目和1篇论文混合展示
   const recentProject = projects.projects.slice(0, 1).map(p => ({ ...p, type: 'project', name: p.name }))
   const recentPaper = research.papers.slice(0, 1).map(r => ({ ...r, type: 'research', name: r.title }))
-  const recentWorks = [...recentProject, ...recentPaper]
+  const recentWorks = [...recentPaper, ...recentProject]
 
   const latestPosts = blog.posts.slice(0, 2)
   const latestNews = news.news.slice(0, 2)
@@ -84,6 +84,13 @@ function Home() {
           ))}
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className={styles.footer}>
+        <p className={styles.footerText}>
+          Built with <span className={styles.highlight}>Claude Code</span> & <span className={styles.highlight}>Zhuyu Teng</span>
+        </p>
+      </footer>
     </div>
   )
 }
