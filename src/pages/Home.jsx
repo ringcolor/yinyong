@@ -8,7 +8,7 @@ import news from '../data/news.json'
 import styles from './Home.module.css'
 
 function Home() {
-  // 解析文本中的markdown链接 [text](url)
+  // 解析文本中的markdown链接格式 [text](url)
   const parseTextWithLinks = (text) => {
     const parts = text.split(/\[([^\]]+)\]\(([^)]+)\)/g)
     if (parts.length === 1) return text
