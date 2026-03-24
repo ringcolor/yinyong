@@ -4,7 +4,7 @@
       "id": "project-1",
       "name": "基于大模型的社交辅助沟通工具",
       "image": "/images/projects/project-1/teaser.png",
-      "summary": "EyeSay 是一款专为中风、帕金森及渐冻症等重度失能群体设计的人格化辅助沟通工具。该方案利用 iPhone 的 ARKit 技术实现低成本的眼动追踪交互，有效降低了患者的使用门槛。通过集成 GPT-4 大语言模型，系统能结合话题偏好与社交亲密度两个核心维度，精准预测并生成符合用户性格的个性化回复。",
+      "summary": "EyeSay 是一款专为中风、帕金森及渐冻症等重度失能群体设计的人格化辅助沟通工具。该方案利用Apple的ARKit技术实现低成本的眼动追踪交互，有效降低了患者的使用门槛。通过集成GPT-4大语言模型，系统能结合话题偏好与社交亲密度两个核心维度，预测并生成的个性化回复。",
       "team": "项目成员：Yuyang Fang，Zhuyu Teng，Zhaoqu Jiang",
       "tech": ["Python", "LangChain", "Milvus", "FastAPI", "React", "GPT-4"],
       "link": "",
