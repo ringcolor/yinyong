@@ -37,6 +37,7 @@
 
 .content {
   padding: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
 }
 
 .header {

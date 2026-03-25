@@ -16,7 +16,7 @@
     },
     {
       "id": "exp-6",
-      "title": "基于大模型的社交辅助沟通工具（Apple&浙江大学）",
+      "title": "基于大模型的社交辅助沟通工具",
       "role": "",
       "date": "2023.03 - 2023.09",
       "projectId": "project-1"
@@ -34,14 +34,7 @@
       "title": "基于实时动态图谱推理的人机协作设计系统",
       "role": "",
       "date": "2025.12 - 2026.03",
-      "projectId": "project-1"
-    },
-    {
-      "id": "exp-5",
-      "title": "基于大模型的虚实融合创作套件",
-      "role": "",
-      "date": "2023.09 - 2024.09",
-      "projectId": "project-1"
+      "paperId": "paper-4"
     }
   ]
 }

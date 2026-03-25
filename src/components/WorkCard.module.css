@@ -35,7 +35,8 @@
 }
 
 .content {
-  padding: var(--spacing-md);
+  padding: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 .title {
@@ -49,14 +50,14 @@
 .period {
   font-size: 0.85rem;
   color: var(--text-muted);
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.25rem;
 }
 
 .summary {
   font-size: 0.9rem;
   color: var(--text-secondary);
   line-height: 1.5;
-  margin: 0 0 0.5rem;
+  margin: 0;
 }
 
 .tags {

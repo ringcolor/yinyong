@@ -75,7 +75,7 @@
       "image": "/images/projects/project-2/cover.png",
       "summary": "小数 是一款智能家居产品，形态是AI虚拟人对话音箱。它将全息投影与AI虚拟助手相结合，依赖华数集团的线下社区网络服务资源，通过日常问答帮助老年人获取咨询和服务。",
       "team": "负责项目的产品功能设计",
-      "tech": ["PyTorch", "U-Net", "Transformer", "OpenCV", "DICOM"],
+      "tech": ["AI虚拟人", "对话式", "适老化", "交互设计"],
       "link": "",
       "period": "2022.05 - 2023.12",
       "sections": [
@@ -110,6 +110,50 @@
         {
           "type": "image",
           "src": "/images/projects/project-2/demo_3.jpg",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "id": "project-3",
+      "name": "虚拟融合的3D智能创作套件",
+      "image": "/images/projects/project-3/cover.png",
+      "summary": "TouchDiffision是一款3D内容创作套件，这套系统包括了基于嵌入式硬件的有形用户界面和基于生成式AI的客户端。得益于软件和硬件的协同工作，触形开创了一套3D创作流程，用户可以通过物理、语音交互等手段，利用套件进行简单自然、类积木的直观交互方式。在生成式AI的辅助下，用户可以发挥具身交互的优势进行图片和3D创作。",
+      "team": "Zhaoqu Jiang, Hongbo Zhang,Zhuyu Teng, Xuelong Xie, Jingwen Yang",
+      "tech": ["3D创作", "生成式AI", "有形用户界面"],
+      "link": "",
+      "period": "2023.09 - 2024.12",
+      "sections": [
+        {
+          "type": "image",
+          "src": "/images/projects/project-3/cover.png",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "/images/projects/project-3/tech_1.jpg",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "/images/projects/project-3/tech_2.jpg",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "id": "project-4",
+      "name": "《Chasing》基于Oculus的跑酷游戏",
+      "image": "/images/projects/project-4/cover.png",
+      "summary": "《Chasing》是一款“数据朋克”风跑酷游戏，玩家以第一人称视角，操作Oculus手柄交互，在数据黑洞内逃出生天，在不断重置中，逐渐找回记忆，解锁剧情，通过和NPC的对话，体悟游戏本身所表达的对AI时代数字迷失的反思。",
+      "team": "",
+      "tech": ["赛博朋克","Unity","Oculus","VR游戏"],
+      "link": "",
+      "period": "",
+      "sections": [
+        {
+          "type": "image",
+          "src": "/images/projects/project-4/bg.png",
           "caption": ""
         }
       ]

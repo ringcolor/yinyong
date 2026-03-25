@@ -134,7 +134,25 @@
   color: var(--text-secondary);
   text-decoration: none;
   padding: var(--spacing-xs) 0;
-  cursor: pointer;
+}
+
+.awardItemLink {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: var(--spacing-xs) 0;
+  transition: opacity 0.2s;
+}
+
+.awardItemLink:hover {
+  opacity: 0.7;
+}
+
+.awardItemLink:hover .awardTitle {
+  color: var(--accent-primary);
 }
 
 .awardItem:hover .awardTitle {

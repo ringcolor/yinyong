@@ -74,34 +74,36 @@ function CV() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>AI项目经历</h2>
           <div className={styles.awardList}>
-            {experiences.experiences.map((exp) => (
-              // TODO: 内容准备好后恢复跳转功能
+            {experiences.experiences.map((exp) => {
               // 有论文ID
-              // if (exp.paperId) {
-              //   return (
-              //     <Link key={exp.id} to={`/research/${exp.paperId}`} className={styles.awardItem}>
-              //       <span className={styles.awardTitle}>{exp.title}</span>
-              //       <span className={styles.awardLevel}>{exp.role}</span>
-              //       <span className={styles.awardDate}>{exp.date}</span>
-              //     </Link>
-              //   )
-              // }
+              if (exp.paperId) {
+                return (
+                  <Link key={exp.id} to={`/research/${exp.paperId}`} className={styles.awardItemLink}>
+                    <span className={styles.awardTitle}>{exp.title}</span>
+                    {exp.role && <span className={styles.awardLevel}>{exp.role}</span>}
+                    <span className={styles.awardDate}>{exp.date}</span>
+                  </Link>
+                )
+              }
               // 有项目ID
-              // if (exp.projectId) {
-              //   return (
-              //     <Link key={exp.id} to={`/projects/${exp.projectId}`} className={styles.awardItem}>
-              //       <span className={styles.awardTitle}>{exp.title}</span>
-              //       <span className={styles.awardLevel}>{exp.role}</span>
-              //       <span className={styles.awardDate}>{exp.date}</span>
-              //     </Link>
-              //   )
-              // }
-              <div key={exp.id} className={styles.awardItem}>
-                <span className={styles.awardTitle}>{exp.title}</span>
-                <span className={styles.awardLevel}>{exp.role}</span>
-                <span className={styles.awardDate}>{exp.date}</span>
-              </div>
-            ))}
+              if (exp.projectId) {
+                return (
+                  <Link key={exp.id} to={`/projects/${exp.projectId}`} className={styles.awardItemLink}>
+                    <span className={styles.awardTitle}>{exp.title}</span>
+                    {exp.role && <span className={styles.awardLevel}>{exp.role}</span>}
+                    <span className={styles.awardDate}>{exp.date}</span>
+                  </Link>
+                )
+              }
+              // 无链接
+              return (
+                <div key={exp.id} className={styles.awardItem}>
+                  <span className={styles.awardTitle}>{exp.title}</span>
+                  {exp.role && <span className={styles.awardLevel}>{exp.role}</span>}
+                  <span className={styles.awardDate}>{exp.date}</span>
+                </div>
+              )
+            })}
           </div>
         </section>
       )}
