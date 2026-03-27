@@ -31,7 +31,7 @@ function Projects() {
       <div ref={gridRef} className={styles.grid}>
         <div className="masonry-sizer"></div>
         <div className="masonry-gutter"></div>
-        {projects.projects.map((project) => (
+        {projects.projects.filter((project) => project.id !== 'project-3').map((project) => (
           <div key={project.id} className="masonry-item">
             <ProjectCard project={project} />
           </div>
