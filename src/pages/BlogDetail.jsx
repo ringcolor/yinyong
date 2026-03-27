@@ -1,21 +1,231 @@
 import { useParams, Link } from 'react-router-dom'
+import { useState, useEffect, useRef } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import * as XLSX from 'xlsx'
 import blog from '../data/blog.json'
 import { getAssetUrl } from '../utils/assets'
 import ImagePreview from '../components/ImagePreview'
 import styles from './BlogDetail.module.css'
 
+// 用于缓存已加载的md文件内容
+const markdownCache = {}
+const xlsxCache = {}
+
+// XLSX表格渲染组件（按分组显示）
+function XLSXTable({ src, onCategoriesLoaded }) {
+  const [groupedData, setGroupedData] = useState({})
+  const [headers, setHeaders] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const loadXLSX = async () => {
+      if (xlsxCache[src]) {
+        setHeaders(xlsxCache[src].headers)
+        setGroupedData(xlsxCache[src].groupedData)
+        onCategoriesLoaded && onCategoriesLoaded(Object.keys(xlsxCache[src].groupedData))
+        setLoading(false)
+        return
+      }
+
+      try {
+        const response = await fetch(src)
+        const arrayBuffer = await response.arrayBuffer()
+        const workbook = XLSX.read(arrayBuffer, { type: 'array' })
+        const firstSheet = workbook.Sheets[workbook.SheetNames[0]]
+        const jsonData = XLSX.utils.sheet_to_json(firstSheet, { header: 1 })
+
+        if (jsonData.length > 0) {
+          const h = jsonData[0]
+          const rows = jsonData.slice(1)
+
+          // 按"大类"分组（第3列，索引为2）
+          const grouped = {}
+          rows.forEach((row) => {
+            const category = row[2] || '未分类'
+            if (!grouped[category]) {
+              grouped[category] = []
+            }
+            grouped[category].push(row)
+          })
+
+          setHeaders(h)
+          setGroupedData(grouped)
+          xlsxCache[src] = { headers: h, groupedData: grouped }
+          onCategoriesLoaded && onCategoriesLoaded(Object.keys(grouped))
+        }
+        setLoading(false)
+      } catch (error) {
+        console.error('Failed to load xlsx:', error)
+        setLoading(false)
+      }
+    }
+
+    loadXLSX()
+  }, [src, onCategoriesLoaded])
+
+  if (loading) return <p className={styles.loading}>加载中...</p>
+
+  const categories = Object.keys(groupedData)
+
+  return (
+    <div className={styles.tableContainer}>
+      {categories.map((category, catIdx) => (
+        <div key={catIdx} id={`xlsx-category-${catIdx}`} className={styles.tableGroup}>
+          <h3 className={styles.groupTitle}>{category}</h3>
+          <div className={styles.tableWrapper}>
+            <table className={styles.dataTable}>
+              <thead>
+                <tr>
+                  <th className={styles.colNum}>#</th>
+                  <th>题目</th>
+                  <th className={styles.colImportance}>重要性</th>
+                  <th className={styles.colTags}>分类</th>
+                  <th>主旨和贡献</th>
+                  <th>启发</th>
+                  <th className={styles.colLink}>链接</th>
+                </tr>
+              </thead>
+              <tbody>
+                {groupedData[category].map((row, rowIdx) => (
+                  <tr key={rowIdx}>
+                    <td className={styles.colNum}>{rowIdx + 1}</td>
+                    <td className={styles.colTitle}>
+                      <div className={styles.titleEn}>{row[0]}</div>
+                      {row[1] && <div className={styles.titleCn}>{row[1]}</div>}
+                    </td>
+                    <td className={styles.colImportance}>{row[4] || ''}</td>
+                    <td className={styles.colTags}>
+                      {row[3] ? row[3].split(',').map((tag, i) => (
+                        <span key={i} className={styles.tag}>{tag.trim()}</span>
+                      )) : ''}
+                    </td>
+                    <td className={styles.colContent}>{row[5] || ''}</td>
+                    <td className={styles.colContent}>{row[6] || ''}</td>
+                    <td className={styles.colLink}>
+                      {row[7] ? (
+                        <a href={row[7]} target="_blank" rel="noopener noreferrer">论文链接</a>
+                      ) : ''}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+// 从markdown内容中提取h2标题（二级标题作为目录）
+const extractH2Headings = (markdown) => {
+  if (!markdown) return []
+  const lines = markdown.split('\n')
+  const headings = []
+  let inCodeBlock = false
+
+  lines.forEach((line) => {
+    // 跳过代码块内的内容
+    if (line.startsWith('```')) {
+      inCodeBlock = !inCodeBlock
+      return
+    }
+    if (inCodeBlock) return
+
+    const match = line.match(/^##\s+(.+)$/)
+    if (match) {
+      headings.push(match[1].trim())
+    }
+  })
+  return headings
+}
+
 function BlogDetail() {
   const { id } = useParams()
   const post = blog.posts.find((p) => p.id === id)
 
-  const scrollToSection = (index) => {
-    const element = document.getElementById(`section-${index}`)
+  // 存储外部markdown文件内容
+  const [externalMarkdowns, setExternalMarkdowns] = useState({})
+
+  // 存储xlsx分类目录
+  const [xlsxCategories, setXlsxCategories] = useState([])
+
+  // 用于给h2元素分配id
+  const markdownRef = useRef(null)
+
+  // 提取目录项 - 从外部markdown的h2标题
+  const allHeadings = []
+  Object.keys(externalMarkdowns).forEach((sectionIndex) => {
+    const h2s = extractH2Headings(externalMarkdowns[sectionIndex])
+    h2s.forEach((h) => {
+      allHeadings.push(h)
+    })
+  })
+
+  // 渲染后给h2元素分配id
+  useEffect(() => {
+    if (markdownRef.current && allHeadings.length > 0) {
+      const h2Elements = markdownRef.current.querySelectorAll('h2')
+      h2Elements.forEach((el, idx) => {
+        el.id = `md-h2-${idx}`
+      })
+    }
+  }, [externalMarkdowns, allHeadings.length])
+
+  const scrollToHeading = (index) => {
+    const element = document.getElementById(`md-h2-${index}`)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
   }
+
+  const scrollToXlsxCategory = (index) => {
+    const element = document.getElementById(`xlsx-category-${index}`)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
+  const copyCode = (code) => {
+    navigator.clipboard.writeText(code)
+  }
+
+  // 加载外部markdown文件
+  useEffect(() => {
+    if (!post?.sections) return
+
+    const loadExternalMarkdowns = async () => {
+      const newMarkdowns = {}
+
+      for (let i = 0; i < post.sections.length; i++) {
+        const section = post.sections[i]
+        if (section.type === 'externalMarkdown' && section.src) {
+          const cacheKey = section.src
+
+          if (markdownCache[cacheKey]) {
+            newMarkdowns[i] = markdownCache[cacheKey]
+          } else {
+            try {
+              const response = await fetch(getAssetUrl(section.src))
+              if (response.ok) {
+                const text = await response.text()
+                markdownCache[cacheKey] = text
+                newMarkdowns[i] = text
+              }
+            } catch (error) {
+              console.error(`Failed to load markdown: ${section.src}`, error)
+              newMarkdowns[i] = '加载内容失败'
+            }
+          }
+        }
+      }
+
+      setExternalMarkdowns(newMarkdowns)
+    }
+
+    loadExternalMarkdowns()
+  }, [post])
 
   if (!post) {
     return (
@@ -28,17 +238,6 @@ function BlogDetail() {
       </div>
     )
   }
-
-  // 提取目录项
-  const headings = post.sections
-    ? post.sections
-        .map((section, index) => ({
-          index,
-          content: section.content,
-          type: section.type
-        }))
-        .filter((item) => item.type === 'heading')
-    : []
 
   return (
     <div className={styles.detailWrapper}>
@@ -182,9 +381,17 @@ function BlogDetail() {
                   )}
                   {section.type === 'code' && (
                     <div className={styles.codeBlock}>
-                      {section.language && (
-                        <span className={styles.codeLanguage}>{section.language}</span>
-                      )}
+                      <div className={styles.codeHeader}>
+                        {section.language && (
+                          <span className={styles.codeLanguage}>{section.language}</span>
+                        )}
+                        <button
+                          className={styles.copyButton}
+                          onClick={() => copyCode(section.content)}
+                        >
+                          复制
+                        </button>
+                      </div>
                       <pre>
                         <code>{section.content}</code>
                       </pre>
@@ -214,6 +421,30 @@ function BlogDetail() {
                       </ReactMarkdown>
                     </div>
                   )}
+                  {section.type === 'externalMarkdown' && (
+                    <div ref={markdownRef} className={styles.markdownContent}>
+                      {externalMarkdowns[index] ? (
+                        <ReactMarkdown
+                          remarkPlugins={[remarkGfm]}
+                          components={{
+                            img: ({ src, alt }) => (
+                              <img src={getAssetUrl(src)} alt={alt || ''} />
+                            )
+                          }}
+                        >
+                          {externalMarkdowns[index]}
+                        </ReactMarkdown>
+                      ) : (
+                        <p className={styles.loading}>加载中...</p>
+                      )}
+                    </div>
+                  )}
+                  {section.type === 'xlsx' && (
+                    <XLSXTable
+                      src={getAssetUrl(section.src)}
+                      onCategoriesLoaded={setXlsxCategories}
+                    />
+                  )}
                 </div>
               ))}
             </div>
@@ -222,17 +453,27 @@ function BlogDetail() {
       </div>
 
       {/* 右侧目录导航 */}
-      {headings.length > 0 && (
+      {(allHeadings.length > 0 || xlsxCategories.length > 0) && (
         <nav className={styles.toc}>
           <div className={styles.tocTitle}>目录</div>
           <ul className={styles.tocList}>
-            {headings.map((item, idx) => (
-              <li key={idx}>
+            {allHeadings.map((item, idx) => (
+              <li key={`md-${idx}`}>
                 <button
-                  onClick={() => scrollToSection(item.index)}
+                  onClick={() => scrollToHeading(idx)}
                   className={styles.tocLink}
                 >
-                  {item.content}
+                  {item}
+                </button>
+              </li>
+            ))}
+            {xlsxCategories.map((item, idx) => (
+              <li key={`xlsx-${idx}`}>
+                <button
+                  onClick={() => scrollToXlsxCategory(idx)}
+                  className={styles.tocLink}
+                >
+                  {item}
                 </button>
               </li>
             ))}

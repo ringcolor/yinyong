@@ -178,67 +178,19 @@
     },
     {
       "id": "post-2",
-      "title": "设计研究的三种类型",
-      "date": "2024.09.22",
-      "summary": "系统性梳理设计研究视角下，设计学/人机交互学科的三种研究范式。奠基观点：https://researchonline.rca.ac.uk/384/。",
-      "tags": ["设计研究", "设计理论","设计实践"],
+      "title": "人机交互顶会UIST25论文主题&Idea速刷",
+      "date": "2025.10.13",
+      "summary": "整理了UIST 2025人机交互顶会的论文主题和创新Idea，了解最新研究趋势。",
+      "tags": ["UIST", "HCI", "人机交互", "论文速读"],
       "link": "",
-      "building": false,
       "sections": [
         {
-          "type": "image",
-          "src": "/images/blog/post-2/0.png",
-          "caption": ""
+          "type": "heading",
+          "content": "UIST 2025 论文列表"
         },
         {
-          "type": "image",
-          "src": "/images/blog/post-2/1.png",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "/images/blog/post-2/2.png",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "/images/blog/post-2/3.png",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "/images/blog/post-2/4.png",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "/images/blog/post-2/5.png",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "/images/blog/post-2/6.png",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "/images/blog/post-2/7.png",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "/images/blog/post-2/8.png",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "/images/blog/post-2/9.png",
-          "caption": ""
-        },
-        {
-          "type": "image",
-          "src": "/images/blog/post-2/10.png",
-          "caption": ""
+          "type": "xlsx",
+          "src": "/images/blog/post-2/UIST25.xlsx"
         }
       ]
     },
@@ -371,6 +323,29 @@
         {
           "type": "markdown",
           "content": "AI时代的设计流程转变：\n\n- 旧的设计工作流：\"调研-发散-收敛\"，截止到「交付设计」；协作planning设计内容（视觉、排版、逻辑）\n- vibe coding能力逐渐强大：从「交付设计」到「执行设计」，关注设计验证；协作planning内容+执行"
+        }
+      ]
+    },
+    {
+      "id": "post-6",
+      "title": "OpenClaw信息摘取：总结全网OpenClaw使用技巧和心得",
+      "date": "2026.03.27",
+      "summary": "通过指令要求OpenClaw以AI技术分析师视角，系统整理了OpenClaw 2026的核心使用技巧、避坑指南和进阶配置。涵盖CLI命令、Slash Commands、Skills系统、Browser自动化、Proactive Agent模式等核心功能，并特别总结了中文社区的实战经验和国产模型配置方案。",
+      "tags": ["OpenClaw", "AI助手", "CLI工具", "自动化", "技巧总结"],
+      "link": "",
+      "sections": [
+        {
+          "type": "heading",
+          "content": "指令要求"
+        },
+        {
+          "type": "code",
+          "language": "Prompt",
+          "content": "角色： 你是一名资深的 AI 技术分析师，擅长使用 OpenClaw 的 browser 和 file_system 技能。\n\n任务：\n\n请使用 browser 搜索关于 \"OpenClaw 2026 使用技巧\" 的最新中英文内容（至少访问 8 个不同的高权重来源，包括 Reddit, GitHub Issues, 和主流科技媒体）。\n\n核心要求： 重点提取\"避坑指南（踩坑经验）\"和\"进阶技能配置\"。\n\n执行流：\n- 第一步：搜索并筛选链接，将原始摘要保存到 raw_research.md。内容来源包括但不限于：各种公众号、知乎、博客、openclaw社区\n- 第二步：对每个链接进行内容完整度校验，剔除 AI 虚构的幻觉内容。\n- 第三步：生成一份结构化的 Markdown 笔记，内容格式参考\"核心价值/案例/技巧/风险/链接\"，包括但不限于这些内容。\n\n安全策略： 在执行过程中，若涉及需要下载运行脚本的建议，请仅记录其文档链接，严禁擅自执行任何安装脚本。\n\n输出： 请将最终报告保存至桌面命名为 OpenClaw_Study_Note.md。"
+        },
+        {
+          "type": "externalMarkdown",
+          "src": "/images/blog/post-5/OpenClaw_Study_Note.md"
         }
       ]
     }
